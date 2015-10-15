@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Satchel implements Serializable{
     
     private String description;
-    private String maxCapacity;
+    private double maxCapacity;
 
     public Satchel() {
     }
@@ -31,11 +31,11 @@ public class Satchel implements Serializable{
         this.description = description;
     }
 
-    public String getMaxCapacity() {
+    public double getMaxCapacity() {
         return maxCapacity;
     }
 
-    public void setMaxCapacity(String maxCapacity) {
+    public void setMaxCapacity(double maxCapacity) {
         this.maxCapacity = maxCapacity;
     }
 
