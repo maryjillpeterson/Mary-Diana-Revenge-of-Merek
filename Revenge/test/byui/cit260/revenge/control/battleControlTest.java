@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author chadepeterson
+ * @author marypeterson dianahughes
  */
 public class battleControlTest {
     
@@ -36,16 +36,16 @@ public class battleControlTest {
         
         System.out.println("calculateHealth");
         /**************************
-        *Test case #1        
+        * Test case #1        
         **************************/
         
         System.out.println("\tTest case #1");
         double playerStrength = 15.0;
         double damage = 3.0;
-        battleControl instance = new battleControl();
         double expResult = 12.0;
+        battleControl instance = new battleControl();
         double result = instance.calculateHealth(playerStrength, damage);
-        assertEquals(expResult, result,0);
+        assertEquals(expResult,result,0.01);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     
