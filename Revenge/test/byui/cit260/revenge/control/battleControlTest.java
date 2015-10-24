@@ -45,7 +45,7 @@ public class battleControlTest {
         double expResult = 12.0;
         battleControl instance = new battleControl();
         double result = instance.calculateHealth(playerStrength, damage);
-        assertEquals(expResult,result,12.0);
+        assertEquals(expResult,result,0.0);
         
         /**************************
         *Test case #2        
@@ -56,7 +56,7 @@ public class battleControlTest {
         damage = 1.0;
         expResult = -1.0;
         result = instance.calculateHealth(playerStrength, damage);
-        assertEquals(expResult, result, -1.0);
+        assertEquals(expResult, result, 0.0);
     
         /**************************
         *Test case #3        
@@ -65,9 +65,9 @@ public class battleControlTest {
         System.out.println("\tTest case #3");
         playerStrength = 25;
         damage = 4;
-        expResult = 21;
+        expResult = -1;
         result = instance.calculateHealth(playerStrength, damage);
-        assertEquals(expResult, result, 21);
+        assertEquals(expResult, result, 0.0);
     
         /**************************
         *Test case #4        
@@ -78,7 +78,7 @@ public class battleControlTest {
         damage = 0;
         expResult = 20;
         result = instance.calculateHealth(playerStrength, damage);
-        assertEquals(expResult, result, 20);
+        assertEquals(expResult, result, 0.0);
     
         /**************************
         *Test case #5        
@@ -87,9 +87,9 @@ public class battleControlTest {
         System.out.println("\tTest case #5");
         playerStrength = 0;
         damage = 5;
-        expResult = -5;
+        expResult = -1;
         result = instance.calculateHealth(playerStrength, damage);
-        assertEquals(expResult, result, -5);
+        assertEquals(expResult, result, 0.0);
 
        
     }
