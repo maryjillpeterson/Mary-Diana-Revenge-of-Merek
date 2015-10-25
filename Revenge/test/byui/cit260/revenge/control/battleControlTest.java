@@ -93,4 +93,65 @@ public class battleControlTest {
 
        
     }
+
+    /**
+     * Test of validCharge method, of class battleControl.
+     */
+    @Test
+    public void testValidCharge() {
+        System.out.println("validCharge");
+        
+        /***********************
+         * Test case #6
+         ***********************/
+        System.out.println("\tTest case #6");
+        int turnNumber = 3;
+        int lastCharge = 0;
+        battleControl instance = new battleControl();
+        boolean expResult = true;
+        boolean result = instance.validCharge(turnNumber, lastCharge);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+        
+        /***********************
+         * Test case #7
+         ***********************/
+        System.out.println("\tTest case #7");
+        turnNumber = 3;
+        lastCharge = 1;
+        expResult = false;
+        result = instance.validCharge(turnNumber, lastCharge);
+        assertEquals(expResult, result);
+        
+        /***********************
+         * Test case #8
+         ***********************/
+        System.out.println("\tTest case #8");
+        turnNumber = 10;
+        lastCharge = 3;
+        expResult = true;
+        result = instance.validCharge(turnNumber, lastCharge);
+        assertEquals(expResult, result);
+        
+        /***********************
+         * Test case #9
+         ***********************/
+        System.out.println("\tTest case #9");
+        turnNumber = 0;
+        lastCharge = 3;
+        expResult = false;
+        result = instance.validCharge(turnNumber, lastCharge);
+        assertEquals(expResult, result);
+        
+        /***********************
+         * Test case #10
+         ***********************/
+        System.out.println("\tTest case #10");
+        turnNumber = 6;
+        lastCharge = 1;
+        expResult = true;
+        result = instance.validCharge(turnNumber, lastCharge);
+        assertEquals(expResult, result);
+    }
 }

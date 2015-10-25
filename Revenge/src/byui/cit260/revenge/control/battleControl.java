@@ -11,6 +11,9 @@ package byui.cit260.revenge.control;
  * @author chadepeterson
  */
 public class battleControl {
+    private int turnNumber;
+    private int lastCharge;
+
     public double calculateHealth(double playerStrength, double damage){
     
         if (playerStrength <= 0){
@@ -24,8 +27,17 @@ public class battleControl {
         double health = (playerStrength - damage);
         
         return health;
-
+    }
+    
+    public boolean validCharge(int turnNumber, int lastCharge){
+    
+        if(turnNumber == 0){
+            return false;
+        }
+        
+        boolean validCharge = ((turnNumber - lastCharge)>= 5) || (lastCharge == 0);
+        
+        return validCharge;
     }
 }
-    
-    
+
