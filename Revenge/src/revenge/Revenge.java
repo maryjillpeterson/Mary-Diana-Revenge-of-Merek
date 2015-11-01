@@ -13,6 +13,7 @@ import byui.cit260.revenge.model.Player;
 import byui.cit260.revenge.model.QuestScene;
 import byui.cit260.revenge.model.RegularScene;
 import byui.cit260.revenge.model.Satchel;
+import byui.cit260.revenge.view.HelpMenuView;
 import byui.cit260.revenge.view.StartProgramView;
 
 /**
@@ -31,6 +32,8 @@ public class Revenge {
         //create StartProgramView and start the program
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.startProgram();
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayMenu();
     }
 
     public static Game getCurrentGame() {
