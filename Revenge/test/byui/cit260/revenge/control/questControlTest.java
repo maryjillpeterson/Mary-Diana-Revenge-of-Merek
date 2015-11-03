@@ -42,7 +42,7 @@ public class questControlTest {
         System.out.println("\tTest case #1");
         double radius = 15.0;
         double height = 40.0;
-        questControl instance = new questControl();
+        QuestControl instance = new QuestControl();
         double expResult = 28274.33;
         double result = instance.calculateVolume(radius, height);
         assertEquals(expResult, result, 28174.33);

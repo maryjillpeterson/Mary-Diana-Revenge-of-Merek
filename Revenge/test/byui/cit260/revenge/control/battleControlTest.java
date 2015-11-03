@@ -43,7 +43,7 @@ public class battleControlTest {
         double playerStrength = 15.0;
         double damage = 3.0;
         double expResult = 12.0;
-        battleControl instance = new battleControl();
+        BattleControl instance = new BattleControl();
         double result = instance.calculateHealth(playerStrength, damage);
         assertEquals(expResult,result,0.0);
         
@@ -107,7 +107,7 @@ public class battleControlTest {
         System.out.println("\tTest case #6");
         int turnNumber = 3;
         int lastCharge = 0;
-        battleControl instance = new battleControl();
+        BattleControl instance = new BattleControl();
         boolean expResult = true;
         boolean result = instance.validCharge(turnNumber, lastCharge);
         assertEquals(expResult, result);

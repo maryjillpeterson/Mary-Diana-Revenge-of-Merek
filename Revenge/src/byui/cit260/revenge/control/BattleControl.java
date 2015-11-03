@@ -10,7 +10,7 @@ package byui.cit260.revenge.control;
  *
  * @author chadepeterson
  */
-public class battleControl {
+public class BattleControl {
     private int turnNumber;
     private int lastCharge;
 

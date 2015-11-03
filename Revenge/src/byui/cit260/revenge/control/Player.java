@@ -10,6 +10,6 @@ package byui.cit260.revenge.control;
  *
  * @author chadepeterson
  */
-public class gameControl {
+class Player {
     
 }

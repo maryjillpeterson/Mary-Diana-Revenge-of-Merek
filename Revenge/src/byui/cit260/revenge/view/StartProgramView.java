@@ -33,7 +33,8 @@ public class StartProgramView {
     this.displayWelcomeMessage(player);
     
     //Display the Main Menu
-
+    MainMenuView mainMenu = MainMenuView();
+    mainMenu.displayMenu();
 }
 
     public void displayBanner() {
@@ -100,6 +101,10 @@ public class StartProgramView {
         System.out.println("\tWelcome to Afenara, " + player.getName());
         System.out.println("\tThe future of the Kingdom is in your hands.");
         System.out.println("====================================================");
+    }
+
+    private MainMenuView MainMenuView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    

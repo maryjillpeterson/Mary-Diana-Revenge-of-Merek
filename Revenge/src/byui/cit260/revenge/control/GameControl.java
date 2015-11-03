@@ -10,6 +10,8 @@ package byui.cit260.revenge.control;
  *
  * @author chadepeterson
  */
-public class mapControl {
-    
+public class GameControl {
+    public static void createNewGame(Player player){
+        System.out.println("\n*** createNewGame stub function called ***");
+    }
 }
