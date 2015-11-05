@@ -28,7 +28,7 @@ public class MainMenuView {
     public void displayMenu() {
         char selection = ' ';
         do{
-            System.out.println(MENU);  //display the Help Menu
+            System.out.println(MENU);  //display the Main Menu
             
             String input = this.getInput();  //get the user's selection
             selection = input.charAt(0); //get first character of the string
@@ -84,7 +84,7 @@ public class MainMenuView {
 
     private void startNewGame() {
                 //create a new game
-        GameControl.createNewGame(Revenge.getPlayer());
+        GameControl.createNewGame(GameControl.getPlayer());
         
                 //display the game menu
         GameMenuView gameMenu = new GameMenuView();
