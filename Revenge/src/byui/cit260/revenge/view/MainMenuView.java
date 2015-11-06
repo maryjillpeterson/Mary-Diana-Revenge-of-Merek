@@ -18,9 +18,9 @@ public class MainMenuView {
             +"\n-----------------------------------------"
             +"\n  Main Menu                              "
             +"\n-----------------------------------------"
-            +"\nG - Start Game"
-            +"\nH - Get help on how to play the game"
-            +"\nC - Continue Game"
+            +"\nS - Start New Game"
+            +"\nC - Continue Existing Game"
+            +"\nH - Get Help on how to play the game"
             +"\nE - Exit"
             +"\n-----------------------------------------";
     
@@ -64,16 +64,20 @@ public class MainMenuView {
     private void doAction(char choice) {
         
         switch (choice){
-            case 'G': //start a new game
+            case 'S': //start a new game
+            case 's':
                 this.startNewGame();
                 break;
             case 'H': //display the help menu
+            case 'h':
                 this.displayHelpMenu();
                 break;
-            case 'C': //continue game
+            case 'C': //continue previous game
+            case 'c':
                 this.continueGame();
                 break;
             case 'E': //exit the program
+            case 'e':
                 return;
             default:
                 System.out.println("\n*** Invalid Menu selection *** Try Again ***");
