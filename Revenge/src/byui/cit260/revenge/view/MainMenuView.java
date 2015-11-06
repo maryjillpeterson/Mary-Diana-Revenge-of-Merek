@@ -6,7 +6,6 @@
 
 package byui.cit260.revenge.view;
 
-import byui.cit260.revenge.control.GameControl;
 import java.util.Scanner;
 
 /**
@@ -15,15 +14,15 @@ import java.util.Scanner;
  */
 public class MainMenuView {
     
-    private final String MENU = "/n"
-            +"/n-----------------------------------------"
-            +"/n  Main Menu                              "
-            +"/n-----------------------------------------"
-            +"/nG - Start Game"
-            +"/nH - Get help on how to play the game"
-            +"/nC - Continue Game"
-            +"/nE - Exit"
-            +"/n-----------------------------------------";
+    private final String MENU = "\n"
+            +"\n-----------------------------------------"
+            +"\n  Main Menu                              "
+            +"\n-----------------------------------------"
+            +"\nG - Start Game"
+            +"\nH - Get help on how to play the game"
+            +"\nC - Continue Game"
+            +"\nE - Exit"
+            +"\n-----------------------------------------";
     
     public void displayMenu() {
         char selection = ' ';
@@ -84,7 +83,7 @@ public class MainMenuView {
 
     private void startNewGame() {
                 //create a new game
-        GameControl.createNewGame(Revenge.getPlayer());
+        //GameControl.createNewGame(Revenge.getPlayer());
         
                 //display the game menu
         GameMenuView gameMenu = new GameMenuView();
@@ -92,7 +91,9 @@ public class MainMenuView {
     }
 
     private void displayHelpMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                //display the help menu
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayMenu();
     }
 
     private void continueGame() {
