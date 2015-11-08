@@ -8,7 +8,7 @@ package byui.cit260.revenge.control;
 
 /**
  *
- * @author chadepeterson
+ * @author maryjillpeterson
  */
 public class QuestControl {
     public double calculateVolume(double radius, double height){

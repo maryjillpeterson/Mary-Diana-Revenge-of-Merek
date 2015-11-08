@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  *
- * @author chadepeterson
+ * @author maryjillpeterson
  */
 public class Inventory implements Serializable{
     

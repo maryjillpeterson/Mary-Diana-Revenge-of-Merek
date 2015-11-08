@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author chadepeterson
+ * @author maryjillpeterson
  */
 public class GameMenuView {
     

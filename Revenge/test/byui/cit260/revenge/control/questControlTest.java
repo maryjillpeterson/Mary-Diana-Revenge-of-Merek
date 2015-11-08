@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author chadepeterson
+ * @author maryjillpeterson
  */
 public class questControlTest {
     
