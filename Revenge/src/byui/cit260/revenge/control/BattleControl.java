@@ -8,7 +8,7 @@ package byui.cit260.revenge.control;
 
 /**
  *
- * @author diana
+ * @author chadepeterson
  */
 public class BattleControl {
     private int turnNumber;
