@@ -6,7 +6,9 @@
 
 package byui.cit260.revenge.view;
 
+import byui.cit260.revenge.control.GameControl;
 import java.util.Scanner;
+import revenge.Revenge;
 
 /**
  *
@@ -87,7 +89,7 @@ public class MainMenuView {
 
     private void startNewGame() {
                 //create a new game
-        //GameControl.createNewGame(Revenge.getPlayer());
+        GameControl.createNewGame(Revenge.getPlayer());
         
                 //display the game menu
         GameMenuView gameMenu = new GameMenuView();
