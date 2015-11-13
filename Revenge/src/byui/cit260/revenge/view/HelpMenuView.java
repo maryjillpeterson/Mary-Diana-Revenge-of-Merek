@@ -64,12 +64,15 @@ public class HelpMenuView {
         
         switch (choice){
             case 'G': //display goal of the game
+            case 'g':
                 this.displayGoal();
                 break;
             case 'M': //display how to move around
+            case 'm':
                 this.displayMove();
                 break;
             case 'E': //exit the help menu
+            case 'e':
                 return;
             default:
                 System.out.println("\n*** Invalid Menu selection *** Try Again ***");

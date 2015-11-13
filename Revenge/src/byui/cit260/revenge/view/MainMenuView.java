@@ -8,6 +8,7 @@ package byui.cit260.revenge.view;
 
 import byui.cit260.revenge.control.GameControl;
 import java.util.Scanner;
+import revenge.Revenge;
 
 /**
  *
@@ -15,15 +16,15 @@ import java.util.Scanner;
  */
 public class MainMenuView {
     
-    private final String MENU = "/n"
-            +"/n-----------------------------------------"
-            +"/n  Main Menu                              "
-            +"/n-----------------------------------------"
-            +"/nG - Start Game"
-            +"/nH - Get help on how to play the game"
-            +"/nC - Continue Game"
-            +"/nE - Exit"
-            +"/n-----------------------------------------";
+    private final String MENU = "\n"
+            +"\n-----------------------------------------"
+            +"\n  Main Menu                              "
+            +"\n-----------------------------------------"
+            +"\nS - Start New Game"
+            +"\nC - Continue Existing Game"
+            +"\nH - Get Help on how to play the game"
+            +"\nE - Exit"
+            +"\n-----------------------------------------";
     
     public void displayMenu() {
         char selection = ' ';
@@ -65,16 +66,20 @@ public class MainMenuView {
     private void doAction(char choice) {
         
         switch (choice){
-            case 'G': //start a new game
+            case 'S': //start a new game
+            case 's':
                 this.startNewGame();
                 break;
             case 'H': //display the help menu
+            case 'h':
                 this.displayHelpMenu();
                 break;
-            case 'C': //continue game
+            case 'C': //continue previous game
+            case 'c':
                 this.continueGame();
                 break;
             case 'E': //exit the program
+            case 'e':
                 return;
             default:
                 System.out.println("\n*** Invalid Menu selection *** Try Again ***");
@@ -92,7 +97,9 @@ public class MainMenuView {
     }
 
     private void displayHelpMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                //display the help menu
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayMenu();
     }
 
     private void continueGame() {

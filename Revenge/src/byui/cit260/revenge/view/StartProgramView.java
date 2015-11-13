@@ -33,7 +33,7 @@ public class StartProgramView {
     this.displayWelcomeMessage(player);
     
     //Display the Main Menu
-    MainMenuView mainMenu = MainMenuView();
+    MainMenuView mainMenu = new MainMenuView();
     mainMenu.displayMenu();
 }
 
@@ -102,11 +102,5 @@ public class StartProgramView {
         System.out.println("\tThe future of the Kingdom is in your hands.");
         System.out.println("====================================================");
     }
-
-    private MainMenuView MainMenuView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-   
 
 }
