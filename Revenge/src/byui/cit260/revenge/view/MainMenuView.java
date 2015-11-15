@@ -61,17 +61,19 @@ public class MainMenuView extends View {
         GameControl.createNewGame(GameControl.getPlayer());
         
                 //display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.display();
     }
 
     private void displayHelpMenu() {
                 //display the help menu
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayMenu();
+        helpMenuView.display();
     }
 
     private void continueGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                //call function to recall savd game
+        LoadSavedGameView loadSavedGameView = new LoadSavedGameView();
+        loadSavedGameView.LoadSavedGame();
     }
 }

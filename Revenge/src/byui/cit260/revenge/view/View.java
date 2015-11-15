@@ -14,11 +14,11 @@ import java.util.Scanner;
  * @author chadepeterson
  */
 public abstract class View implements ViewInterface {
-    Scanner keyboard = new Scanner(System.in);
-    protected String displayMessage;
-    
-    public View(String message){
-        this.displayMessage = message;
+    //Scanner keyboard = new Scanner(System.in);
+    private String displayMessage;
+
+    public View(String displayMessage){
+        this.displayMessage = displayMessage;
     }
     
     @Override
@@ -26,7 +26,7 @@ public abstract class View implements ViewInterface {
         String value = "";
         boolean done = false;
         do{
-            System.out.println(MENU);  //display the Help Menu
+            System.out.println(this.displayMessage);  //display message
             
             value = this.getInput();  //get the user's selection
             done = this.doAction(value); //do action based on selection
@@ -37,13 +37,15 @@ public abstract class View implements ViewInterface {
     public String getInput() {
         boolean valid = false; //indicates if the entry has to be retrieved
         String selection = null;
+        Scanner keyboard = new Scanner(System.in); //keyboard input stream
         
         while(!valid) { //while a valid entry has not been retrieved
-                        
+            
+            //get value entered from the keyboard
             selection = keyboard.nextLine();
             selection = selection.trim();
             
-            //if the entry is invalid (less than two characters in length)
+            //if the entry is invalid (less than one character in length)
             if (selection.length()<1){
                 System.out.println("Invalid entry");
                 continue; // and repeat again
@@ -51,5 +53,13 @@ public abstract class View implements ViewInterface {
             break; //out of the (exit) the repetition
         }
         return selection; // return the entry
+    }
+    
+    public String getDisplayMessage() {
+        return displayMessage;
+    }
+
+    public void setDisplayMessage(String displayMessage) {
+        this.displayMessage = displayMessage;
     }
 }

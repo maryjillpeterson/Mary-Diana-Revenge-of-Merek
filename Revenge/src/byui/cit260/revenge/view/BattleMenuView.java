@@ -11,56 +11,24 @@ import java.util.Scanner;
  *
  * @author Diana
  */
-public class BattleMenuView {
+public class BattleMenuView extends View {
     
-     private final String MENU = "\n"
-            + "\n------------------------------------------------------"
+     public BattleMenuView(){
+        super("\n------------------------------------------------------"
             + "\n         Battle Options                               "
             + "\n------------------------------------------------------"
             + "\nS - Strike, P - Pummel, C - Charge,"
             + "\nH - Heal, Q - Quit Battle"
             + "\n"
             + "\nX - Displays explainations of the listed options"
-            + "\n------------------------------------------------------";
+            + "\n------------------------------------------------------");
+     }
 
-    public void displayMenu() {
-        char selection = ' ';
-        do{  
-            System.out.println(MENU);  //display the Battle Menu
-            
-            String input = this.getInput();  //get the user's selection
-            selection = input.charAt(0); //get first character of the string
-            
-            this.doAction(selection); //do action based on selection
-            
-        }while (selection != 'Q'); //the selection is not "Quit"
-    }
-
-    private String getInput() {
-        boolean valid = false; //indicates if the entry has to be retrieved
-        String menuEntry = null;
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
-        
-        while(!valid) { //while a valid entry has not been retrieved
-            
-            //prompt for the menu entry
-            System.out.println("What would you like to do?");
-            
-            //get the entry from the keyboard and trim off the blank
-            menuEntry = keyboard.nextLine();
-            menuEntry = menuEntry.trim();
-            
-            //if the entry is invalid (less than two characters in length)
-            if (menuEntry.length()<1){
-                System.out.println("Invalid entry");
-                continue; // and repeat again
-            }
-            break; //out of the (exit) the repetition
-        }
-        return menuEntry; // return the entry
-    }
-
-    public void doAction(char choice) {
+     @Override
+     public boolean doAction(Object obj) {
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
         
         switch (choice){
             case 'S': //execute a strike attack
@@ -85,11 +53,12 @@ public class BattleMenuView {
                 break;
             case 'Q': //exit the battle
             case 'q':
-                return;
+                return true;
             default:
                 System.out.println("\n*** Invalid Menu selection *** Try Again ***");
                 break;
         }
+         return false;
     }
     
      private void displayBattleHelp() {
@@ -132,4 +101,5 @@ public class BattleMenuView {
     private void battleHeal() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 }

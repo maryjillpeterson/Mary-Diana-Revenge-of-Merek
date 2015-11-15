@@ -17,6 +17,7 @@ import byui.cit260.revenge.view.BattleMenuView;
 import byui.cit260.revenge.view.HelpMenuView;
 import byui.cit260.revenge.view.StartProgramView;
 
+
 /**
  *
  * @author marypeterson
@@ -31,10 +32,11 @@ public class Revenge {
      */
     public static void main(String[] args) {
         //create StartProgramView and start the program
-        //StartProgramView startProgramView = new StartProgramView();
-        //startProgramView.startProgram();
-        BattleMenuView battleMenuView = new BattleMenuView();
-        battleMenuView.displayMenu();
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.startProgram();
+        //BattleMenuView battleMenuView = new BattleMenuView();
+        //battleMenuView.displayMenu();
+        
     }
 
     public static Game getCurrentGame() {
