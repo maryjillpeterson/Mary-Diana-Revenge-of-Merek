@@ -12,73 +12,43 @@ import java.util.Objects;
  *
  * @author Diana
  */
-public class Actor implements Serializable{
+public enum Actor implements Serializable{
     
-    //class instance variables
-    private String name;
-    private String description;
-    private String location;
-
-    public Actor() {
-    }
+    //names and descriptions of characters
+    Merek("The rightful and just kind of Afenara."),
+    Worthag("The evil Orc who has usurped the thron and taken over the kingdom."),
+    Sirius("The Lord of the County of Cumuland."),
+    Byron("The Lord of County of Keets"),
+    Whitman("The Lord of County Walt"),
+    Tenor("The Lord of the County TrebleCliff"),
+    Otis("The Lord of the County Upton"),
+    Bayar("Hero of the County of Cumuland"),
+    Maltev("Hero of the County Walt"),
+    Kanto("Hero of the County Keets"),
+    Altin("Warrior of the County TrebleCliff"),
+    Extacrucious("Warrior o the County Upton"),
+    Gizellia("An old witch with a riddle.");
     
-    public String getName() {
-        return name;
-    }
+    //class instance variable
+    private final String description;
+    private final String location;
 
-    public void setName(String name) {
-        this.name = name;
+    Actor(String description) {
+        this.description = description;
+        coordinates = new Point(1,1);
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
     @Override
     public String toString() {
-        return "Actor{" + "name=" + name + ", description=" + description + ", location=" + location + '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 23 * hash + Objects.hashCode(this.name);
-        hash = 23 * hash + Objects.hashCode(this.description);
-        hash = 23 * hash + Objects.hashCode(this.location);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Actor other = (Actor) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.location, other.location)) {
-            return false;
-        }
-        return true;
+        return "Actor{" + "name=" + ", description=" + description + ", location=" + location + '}';
     }
     
 }

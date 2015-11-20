@@ -15,6 +15,14 @@ public class Game implements Serializable{
     
     //class instance variables
     private double timePlayed;
+    
+    private Player player;
+    private InventoryItem[] inventory;
+    private String[] actor;
+    private Map map;
+    private Satchel satchel;
+    
+    
 
     public Game() {
     }
@@ -27,6 +35,47 @@ public class Game implements Serializable{
         this.timePlayed = timePlayed;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public InventoryItem[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
+
+    public String[] getActor() {
+        return actor;
+    }
+
+    public void setActor(String[] actor) {
+        this.actor = actor;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public Satchel getSatchel() {
+        return satchel;
+    }
+
+    public void setSatchel(Satchel satchel) {
+        this.satchel = satchel;
+    }
+
+    
     @Override
     public String toString() {
         return "Game{" + "timePlayed=" + timePlayed + '}';
