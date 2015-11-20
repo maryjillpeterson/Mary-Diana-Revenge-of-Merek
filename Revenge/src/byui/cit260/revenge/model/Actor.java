@@ -5,6 +5,7 @@
  */
 package byui.cit260.revenge.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -32,6 +33,7 @@ public enum Actor implements Serializable{
     //class instance variable
     private final String description;
     private final String location;
+    private Point coordinates;//not sure if this is correct
 
     Actor(String description) {
         this.description = description;

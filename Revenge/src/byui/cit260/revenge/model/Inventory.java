@@ -13,28 +13,24 @@ import java.util.Objects;
  *
  * @author chadepeterson
  */
-public class Inventory implements Serializable{
+public class Inventory implements Serializable{   /// how do we change this to an array??
+    
+    
+    public enum Item { ////  I'm not sure if this is the right place for this.
+        potion,
+        bandage,
+        artifact;
+    }
     
     //class instance variables
-    private String itemName;
     private String itemDescription;
-    private String quantityItem;
-    private String itemType;
+    private int quantityItem;
     private String equipped;
 
     public Inventory() {
     }
     
-    
-
-    public String getItemName() {
-        return itemName;
-    }
-
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
-
+   
     public String getItemDescription() {
         return itemDescription;
     }
@@ -43,20 +39,12 @@ public class Inventory implements Serializable{
         this.itemDescription = itemDescription;
     }
 
-    public String getQuantityItem() {
+    public int getQuantityItem() {
         return quantityItem;
     }
 
-    public void setQuantityItem(String quantityItem) {
+    public void setQuantityItem(int quantityItem) {
         this.quantityItem = quantityItem;
-    }
-
-    public String getItemType() {
-        return itemType;
-    }
-
-    public void setItemType(String itemType) {
-        this.itemType = itemType;
     }
 
     public String getEquipped() {
@@ -70,17 +58,15 @@ public class Inventory implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 29 * hash + Objects.hashCode(this.itemName);
         hash = 29 * hash + Objects.hashCode(this.itemDescription);
         hash = 29 * hash + Objects.hashCode(this.quantityItem);
-        hash = 29 * hash + Objects.hashCode(this.itemType);
         hash = 29 * hash + Objects.hashCode(this.equipped);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Inventory{" + "itemName=" + itemName + ", itemDescription=" + itemDescription + ", quantityItem=" + quantityItem + ", itemType=" + itemType + ", equipped=" + equipped + '}';
+        return "Inventory{" + ", itemDescription=" + itemDescription + ", quantityItem=" + quantityItem + ", equipped=" + equipped + '}';
     }
 
     
@@ -93,17 +79,10 @@ public class Inventory implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Inventory other = (Inventory) obj;
-        if (!Objects.equals(this.itemName, other.itemName)) {
-            return false;
-        }
         if (!Objects.equals(this.itemDescription, other.itemDescription)) {
             return false;
         }
         if (!Objects.equals(this.quantityItem, other.quantityItem)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemType, other.itemType)) {
             return false;
         }
         if (!Objects.equals(this.equipped, other.equipped)) {

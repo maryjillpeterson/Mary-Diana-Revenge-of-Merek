@@ -17,7 +17,7 @@ public class Game implements Serializable{
     private double timePlayed;
     
     private Player player;
-    private InventoryItem[] inventory;
+    private Inventory[] inventory;
     private String[] actor;
     private Map map;
     private Satchel satchel;
@@ -43,11 +43,11 @@ public class Game implements Serializable{
         this.player = player;
     }
 
-    public InventoryItem[] getInventory() {
+    public Inventory[] getInventory() {
         return inventory;
     }
 
-    public void setInventory(InventoryItem[] inventory) {
+    public void setInventory(Inventory[] inventory) {
         this.inventory = inventory;
     }
 
@@ -102,6 +102,9 @@ public class Game implements Serializable{
         }
         return true;
     }
-    
-    
+
+    public void setPlayer(byui.cit260.revenge.control.Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
