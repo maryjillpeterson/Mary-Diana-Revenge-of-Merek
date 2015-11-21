@@ -12,7 +12,7 @@ import revenge.Revenge;
 
 /**
  *
- * @author chadepeterson
+ * @author mary
  */
 public class MainMenuView extends View {
     

@@ -6,7 +6,11 @@
 
 package byui.cit260.revenge.view;
 
+import byui.cit260.revenge.control.GameControl;
+import byui.cit260.revenge.model.Inventory;
+import byui.cit260.revenge.model.Location;
 import java.util.Scanner;
+import revenge.Revenge;
 
 /**
  *
@@ -24,6 +28,7 @@ public class GameMenuView extends View {
             +"/nM - Move"
             +"/nS - Save"
             +"/nH - Help"
+            +"/nV - Map"    
             +"/nE - Exit"
             +"/n-----------------------------------------");
     }
@@ -44,6 +49,9 @@ public class GameMenuView extends View {
             case 'M': //make a move
                 this.move();
                 break;
+            case 'V': //open map
+                this.map();
+                break;
             case 'S': //save game
                 this.save();
                 break;
@@ -59,8 +67,19 @@ public class GameMenuView extends View {
         return false;
     }
 
-    private void inventory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void viewinventory() {
+        Inventory[] inventory = GameControl.getSortedInventoryList();
+        
+        System.out.println("\nList of Inventory Items");
+        System.out.println("Description" + "\t" +
+                                "Required" + "\t" +
+                                "In Stock");
+        
+        for (Inventory inventory : inventory) {
+            System.out.println(inventory.getDescription() +"\t     " +
+                                inventory.getRequiredAmount() + "\t      " +
+                                inventory.getQuantityInStock());
+        }
     }
 
     private void quests() {
@@ -77,6 +96,13 @@ public class GameMenuView extends View {
 
     private void help() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void map() {
+        Location[][] locations = Revenge.getCurrentGame();
+        
+        System.out.println("\nMap");
+        
     }
 }
 

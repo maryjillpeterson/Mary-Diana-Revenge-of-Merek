@@ -14,14 +14,35 @@ import java.io.Serializable;
 public class Map implements Serializable{
     
     //class instance variables
-    private double rowCount;
-    private double columnCount;
+    private int rowCount;
+    private int columnCount;
+    private Location[][] locations;
+    private int column;
 
     public Map() {
     }
 
-    public Map(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Map(int rowCount, int columnCount) {
+        if (rowCount < 1 || columnCount < 1) {
+            System.out.println("The number of rows and columns must be > zero");
+            return;
+        }
+        
+        this.rowCount = rowCount;
+        this.columnCount = columnCount;
+        
+        this.locations = new Location [rowCount] [columnCount];
+        
+        for (int row = 0; row < rowCount; row++) {
+        
+            Location location = new Location();
+            location.setColumn(column);
+            location.setRow(row);
+            location.setVisited(false);
+            
+            locations[row] [column] = location;
+        
+        }
     }
     
     
@@ -31,7 +52,7 @@ public class Map implements Serializable{
     }
 
     public void setRowCount(double rowCount) {
-        this.rowCount = rowCount;
+        this.rowCount = (int) rowCount;
     }
 
     public double getColumnCount() {
@@ -39,7 +60,7 @@ public class Map implements Serializable{
     }
 
     public void setColumnCount(double columnCount) {
-        this.columnCount = columnCount;
+        this.columnCount = (int) columnCount;
     }
 
     @Override
@@ -71,6 +92,10 @@ public class Map implements Serializable{
             return false;
         }
         return true;
+    }
+
+    public Location[][] getLocations() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

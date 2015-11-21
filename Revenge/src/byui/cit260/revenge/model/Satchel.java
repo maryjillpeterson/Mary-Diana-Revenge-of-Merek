@@ -19,6 +19,10 @@ public class Satchel implements Serializable{
     private double maxCapacity;
 
     public Satchel() {
+        
+        this.description = "\nThese are the items that you have in your satchel."
+                                + "\nThey will help you on your quest.";
+        this.maxCapacity = 50;
     }
     
     

@@ -16,42 +16,42 @@ import java.util.Objects;
 public class Inventory implements Serializable{   /// how do we change this to an array??
     
     
-    public enum Item { ////  I'm not sure if this is the right place for this.
-        potion,
-        bandage,
-        artifact;
-    }
+    ///public enum Item { ////  I'm not sure if this is the right place for this.
+       /// potion,
+       /// bandage,
+       /// artifact;
+    ///}
     
     //class instance variables
-    private String itemDescription;
-    private int quantityItem;
-    private String equipped;
+    String itemDescription[] = new String[10];
+    int quantityItem[] = new int[10];
+    String equipped[] = new String[10];
 
     public Inventory() {
     }
     
    
-    public String getItemDescription() {
+    public String[] getItemDescription() {
         return itemDescription;
     }
 
-    public void setItemDescription(String itemDescription) {
+    public void setItemDescription(String[] itemDescription) {
         this.itemDescription = itemDescription;
     }
 
-    public int getQuantityItem() {
+    public int[] getQuantityItem() {
         return quantityItem;
     }
 
-    public void setQuantityItem(int quantityItem) {
+    public void setQuantityItem(int[] quantityItem) {
         this.quantityItem = quantityItem;
     }
 
-    public String getEquipped() {
+    public String[] getEquipped() {
         return equipped;
     }
 
-    public void setEquipped(String equipped) {
+    public void setEquipped(String[] equipped) {
         this.equipped = equipped;
     }
 
@@ -71,24 +71,36 @@ public class Inventory implements Serializable{   /// how do we change this to a
 
     
     
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        if (!Objects.equals(this.itemDescription, other.itemDescription)) {
-            return false;
-        }
-        if (!Objects.equals(this.quantityItem, other.quantityItem)) {
-            return false;
-        }
-        if (!Objects.equals(this.equipped, other.equipped)) {
-            return false;
-        }
-        return true;
+    //@Override
+    //public boolean equals(Object obj) {
+        //if (obj == null) {
+        //    return false;
+        //}
+        //if (getClass() != obj.getClass()) {
+        //    return false;
+        //}
+        //if (!Objects.equals(this.itemDescription, other.itemDescription)) {
+        //    return false;
+        //}
+        //if (!Objects.equals(this.quantityItem, other.quantityItem)) {
+        //    return false;
+        //}
+        //if (!Objects.equals(this.equipped, other.equipped)) {
+        //    return false;
+        //}
+        //return true;
+    //}
+
+    public String getDescription() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getRequiredAmount() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getQuantityInStock() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

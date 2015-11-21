@@ -6,36 +6,41 @@
 
 package byui.cit260.revenge.model;
 
+import com.sun.j3d.loaders.Scene;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
  *
- * @author chadepeterson
+ * @author mary
  */
 public class Location implements Serializable{
     
-    private String row;
-    private String column;
+    private int row;
+    private int column;
+    private boolean visited;
+    private Scene scene;
+    private ArrayList<Actor> actors;
 
     public Location() {
     }
     
     
 
-    public String getRow() {
+    public int getRow() {
         return row;
     }
 
-    public void setRow(String row) {
+    public void setRow(int row) {
         this.row = row;
     }
 
-    public String getColumn() {
+    public int getColumn() {
         return column;
     }
 
-    public void setColumn(String column) {
+    public void setColumn(int column) {
         this.column = column;
     }
 
@@ -70,6 +75,14 @@ public class Location implements Serializable{
             return false;
         }
         return true;
+    }
+
+    void setVisited(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setRegularScene(Scene scene) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

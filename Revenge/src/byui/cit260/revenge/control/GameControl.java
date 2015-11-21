@@ -4,8 +4,10 @@ package byui.cit260.revenge.control;
 
 import byui.cit260.revenge.model.Game;
 import byui.cit260.revenge.model.Inventory;
+import byui.cit260.revenge.model.Inventory.Item;
 import byui.cit260.revenge.model.Map;
 import byui.cit260.revenge.model.Satchel;
+import java.io.Serializable;
 import revenge.Revenge;
 
 /**
@@ -38,6 +40,37 @@ public class GameControl {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public static Inventory[] getSortedInventoryList() {
+        Inventory[] originalInventoryList = 
+                Revenge.getCurrentGame().getInventory();
+        
+        Inventory[] inventoryList = originalInventoryList.clone();
+        
+        Inventory tempInventory;
+        for (int i = 0; i < inventoryList.length-1; i++){
+            for (int j = 0; j < inventoryList.length-1-i; j++) {
+                if (inventoryList[j].getDescription().
+                        compareToIgnoreCase(inventoryList[j+1].getDescription()) > 0) {
+                        tempInventory = inventoryList[j];
+                        inventoryList[j] = inventoryList[j+1];
+                        inventoryList[j+1] = tempInventory;
+            }
+        }
+    }
+    return inventoryList;
+}
+    
+    public class satchel implements Serializable{
+        private String description;
+        private double maxCapacity;
+        
+        public satchel() {
+            this.description = "\nThese are the items that you have in your satchel."
+                                + "\nThey will help you on your quest.";
+            this.maxCapacity = 0;
+        }
+    }
+
     private static Inventory[] createInventoryList() {
         
         // create array(list) of inventory items
@@ -59,7 +92,7 @@ public class GameControl {
         artifact.setItemDescription("Artifact");
         artifact.setQuantityItem(0);
         artifact.setEquipped(null);
-        inventory[Item.artifat.ordinal()] = artifact;
+        inventory[Item.artifact.ordinal()] = artifact;
         
         return inventory;
     }
