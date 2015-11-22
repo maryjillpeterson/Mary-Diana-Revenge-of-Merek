@@ -104,18 +104,30 @@ public class GameMenuView extends View {
     }
 
     private void displayMap() {
-        
-        Location[] [] locations = Revenge.getLocations();
+       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }  
+       // Location[] [] locations = Revenge.getLocations();
         
    
-        System.out.println("\n\n====================================================");
-        System.out.println("\t MAP OF AFENARA";
-        System.out.println("====================================================");
-        System.out.println("Column" + "\t" +
+        //System.out.println("\n\n====================================================");
+        //System.out.println("\t MAP OF AFENARA");
+        //System.out.println("====================================================");
+        //System.out.println("Column" + "\t" +
                 
-        for (Location locationColumn : locations) {
-            System.out.println(locationColumn.getColumn());
-        }
+        //for(Location locationColumn : locations) {
+            //System.out.println(locationColumn.getColumn());
+          //  for (int i = 0; i < location.length; i++) { 
+            //    for (int j = 0; j < location[i].length; j++) { 
+              //      location[i][j] = i + j;
+              //  }
+          //  }
+                
+           // for (int[] a : location) { for (int i : a) { 
+           //     System.out.print(i + "\t");
+           //     System.out.println("\n"); 
+          //  }
+
+      //  }
         
    // }
 
