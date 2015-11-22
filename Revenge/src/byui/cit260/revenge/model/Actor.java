@@ -32,8 +32,7 @@ public enum Actor implements Serializable{
     
     //class instance variable
     private final String description;
-    private final String location;
-    private Point coordinates;//not sure if this is correct
+    private final Point coordinates;
 
     Actor(String description) {
         this.description = description;
@@ -44,13 +43,13 @@ public enum Actor implements Serializable{
         return description;
     }
 
-    public String getLocation() {
-        return location;
+    public Point getCoordinates() {
+        return coordinates;
     }
 
-    @Override
-    public String toString() {
-        return "Actor{" + "name=" + ", description=" + description + ", location=" + location + '}';
-    }
+    //@Override
+    //public String toString() {
+      //  return "Actor{" + "description=" + description + ", coordinates=" + coordinates + '}';
+    //}
     
 }

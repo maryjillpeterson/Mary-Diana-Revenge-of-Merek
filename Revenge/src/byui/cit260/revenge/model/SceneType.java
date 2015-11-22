@@ -13,7 +13,16 @@ package byui.cit260.revenge.model;
 public enum SceneType {
     start,
     finish,
+    forest,
+    mountain,
+    field,
+    plainLake,
+    boatDock,
+    lake,
+    lakeIsland,
     lord,
     quest,
+    shore,
+    river,
     village;
 }

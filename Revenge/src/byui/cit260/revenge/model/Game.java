@@ -103,8 +103,5 @@ public class Game implements Serializable{
         return true;
     }
 
-    public void setPlayer(byui.cit260.revenge.control.Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

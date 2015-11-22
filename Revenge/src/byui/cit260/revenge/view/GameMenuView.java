@@ -7,6 +7,7 @@
 package byui.cit260.revenge.view;
 
 import byui.cit260.revenge.control.GameControl;
+import byui.cit260.revenge.model.Game;
 import byui.cit260.revenge.model.Inventory;
 import byui.cit260.revenge.model.Location;
 import java.util.Scanner;
@@ -41,22 +42,22 @@ public class GameMenuView extends View {
         
         switch (choice){
             case 'I': //show inventory
-                this.inventory();
+                this.viewInventory();
                 break;
             case 'Q': //display the quests
-                this.quests();
+                this.viewQuests();
                 break;
             case 'M': //make a move
                 this.move();
                 break;
             case 'V': //open map
-                this.map();
+                this.displayMap();
                 break;
             case 'S': //save game
-                this.save();
+                this.saveGame();
                 break;
             case 'H': //Help menu
-                this.help();
+                this.viewHelpMenu();
                 break;
             case 'E': //exit game to main
                 return true;
@@ -67,7 +68,8 @@ public class GameMenuView extends View {
         return false;
     }
 
-    private void viewinventory() {
+    private void viewInventory() {
+        //get sorted list of inventory items for the current game
         Inventory[] inventory = GameControl.getSortedInventoryList();
         
         System.out.println("\nList of Inventory Items");
@@ -75,14 +77,15 @@ public class GameMenuView extends View {
                                 "Required" + "\t" +
                                 "In Stock");
         
-        for (Inventory inventory : inventory) {
-            System.out.println(inventory.getDescription() +"\t     " +
-                                inventory.getRequiredAmount() + "\t      " +
-                                inventory.getQuantityInStock());
+        //for each inventory item
+        for (Inventory inventoryItem : inventory) {
+            System.out.println(inventoryItem.getDescription() +"\t     " +
+                                inventoryItem.getRequiredAmount() + "\t      " +
+                                inventoryItem.getQuantityInStock());
         }
     }
 
-    private void quests() {
+    private void viewQuests() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -90,19 +93,32 @@ public class GameMenuView extends View {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void save() {
+    private void saveGame() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void help() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void viewHelpMenu() {
+               //display the help menu
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.display();
     }
 
-    private void map() {
-        Location[][] locations = Revenge.getCurrentGame();
+    private void displayMap() {
         
-        System.out.println("\nMap");
+        Location[] [] locations = Revenge.getLocations();
         
-    }
+   
+        System.out.println("\n\n====================================================");
+        System.out.println("\t MAP OF AFENARA";
+        System.out.println("====================================================");
+        System.out.println("Column" + "\t" +
+                
+        for (Location locationColumn : locations) {
+            System.out.println(locationColumn.getColumn());
+        }
+        
+   // }
+
+
 }
 

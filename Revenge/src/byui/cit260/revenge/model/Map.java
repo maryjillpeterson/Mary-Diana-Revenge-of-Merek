@@ -31,22 +31,22 @@ public class Map implements Serializable{
         this.rowCount = rowCount;
         this.columnCount = columnCount;
         
+        //create 2-D array for Location objects
         this.locations = new Location [rowCount] [columnCount];
         
         for (int row = 0; row < rowCount; row++) {
-        
-            Location location = new Location();
-            location.setColumn(column);
-            location.setRow(row);
-            location.setVisited(false);
-            
+            for (int column = 0; column < columnCount; column++) {
+                //create and initialie new Location objet instance
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(false);
+       
             locations[row] [column] = location;
-        
+            }
         }
     }
     
-    
-
     public double getRowCount() {
         return rowCount;
     }

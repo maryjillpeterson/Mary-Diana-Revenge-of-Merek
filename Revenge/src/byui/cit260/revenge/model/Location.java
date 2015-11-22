@@ -6,7 +6,6 @@
 
 package byui.cit260.revenge.model;
 
-import com.sun.j3d.loaders.Scene;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -20,7 +19,7 @@ public class Location implements Serializable{
     private int row;
     private int column;
     private boolean visited;
-    private Scene scene;
+    private RegularScene scene;
     private ArrayList<Actor> actors;
 
     public Location() {
@@ -81,7 +80,7 @@ public class Location implements Serializable{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setRegularScene(Scene scene) {
+    public void setScene(RegularScene scene) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

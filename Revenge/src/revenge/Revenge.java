@@ -8,12 +8,14 @@ package revenge;
 
 import byui.cit260.revenge.model.Actor;
 import byui.cit260.revenge.model.Game;
+import byui.cit260.revenge.model.Location;
 import byui.cit260.revenge.model.Map;
 import byui.cit260.revenge.model.Player;
 import byui.cit260.revenge.model.QuestScene;
 import byui.cit260.revenge.model.RegularScene;
 import byui.cit260.revenge.model.Satchel;
 import byui.cit260.revenge.view.BattleMenuView;
+import byui.cit260.revenge.view.GameMenuView;
 import byui.cit260.revenge.view.HelpMenuView;
 import byui.cit260.revenge.view.StartProgramView;
 
@@ -36,6 +38,8 @@ public class Revenge {
         startProgramView.startProgram();
         //BattleMenuView battleMenuView = new BattleMenuView();
         //battleMenuView.displayMenu();
+        //GameMenuView gameMenuView = new GameMenuView();
+        //gameMenuView.displayMenu();
         
     }
 
@@ -53,6 +57,10 @@ public class Revenge {
 
     public static void setPlayer(Player player) {
         Revenge.player = player;
+    }
+
+    public static Location[][] getLocations() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

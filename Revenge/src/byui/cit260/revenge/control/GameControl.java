@@ -3,11 +3,11 @@
 package byui.cit260.revenge.control;
 
 import byui.cit260.revenge.model.Game;
+import byui.cit260.revenge.model.Player;
 import byui.cit260.revenge.model.Inventory;
-import byui.cit260.revenge.model.Inventory.Item;
+import byui.cit260.revenge.model.Item;
 import byui.cit260.revenge.model.Map;
 import byui.cit260.revenge.model.Satchel;
-import java.io.Serializable;
 import revenge.Revenge;
 
 /**
@@ -41,11 +41,15 @@ public class GameControl {
     }
 
     public static Inventory[] getSortedInventoryList() {
+        
+        //get inventory list for the current game
         Inventory[] originalInventoryList = 
                 Revenge.getCurrentGame().getInventory();
         
+        //clone originalList
         Inventory[] inventoryList = originalInventoryList.clone();
         
+        //using a BubbleSort to sort the list of inventoryList by name
         Inventory tempInventory;
         for (int i = 0; i < inventoryList.length-1; i++){
             for (int j = 0; j < inventoryList.length-1-i; j++) {
@@ -59,17 +63,6 @@ public class GameControl {
     }
     return inventoryList;
 }
-    
-    public class satchel implements Serializable{
-        private String description;
-        private double maxCapacity;
-        
-        public satchel() {
-            this.description = "\nThese are the items that you have in your satchel."
-                                + "\nThey will help you on your quest.";
-            this.maxCapacity = 0;
-        }
-    }
 
     private static Inventory[] createInventoryList() {
         
