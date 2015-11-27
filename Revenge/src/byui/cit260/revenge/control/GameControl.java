@@ -2,6 +2,7 @@
 
 package byui.cit260.revenge.control;
 
+import byui.cit260.revenge.exceptions.MapControlException;
 import byui.cit260.revenge.model.Game;
 import byui.cit260.revenge.model.Player;
 import byui.cit260.revenge.model.Inventory;
@@ -15,7 +16,7 @@ import revenge.Revenge;
  * @author chadepeterson
  */
 public class GameControl {
-    public static void createNewGame(Player player){
+    public static void createNewGame(Player player) throws MapControlException{
         
         Game game = new Game();  //create new game
         Revenge.setCurrentGame(game); //save in Revenge

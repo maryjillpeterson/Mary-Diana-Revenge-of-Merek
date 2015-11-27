@@ -6,11 +6,14 @@
 
 package byui.cit260.revenge.control;
 
+import byui.cit260.revenge.exceptions.MapControlException;
+import byui.cit260.revenge.model.Actor;
 import byui.cit260.revenge.model.Game;
 import byui.cit260.revenge.model.Location;
 import byui.cit260.revenge.model.Map;
 import byui.cit260.revenge.model.RegularScene;
 import byui.cit260.revenge.model.SceneType;
+import java.awt.Point;
 import revenge.Revenge;
 
 
@@ -33,8 +36,32 @@ public class MapControl {
         return map;
      }
 
-    static void moveActorsToStartingLocation(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static int moveActorsToStartingLocation(Map map) 
+                            throws MapControlException {
+        Actor[] actors = Actor.values();
+        
+        for (Actor actor : actors) {
+            Point coordinates = actor.getCoordinates();
+            MapControl.moveActorToLocation(actor, coordinates);
+            
+        }
+        return 0;
+    }
+    
+    public static void moveActorToLocation(Actor actor, Point coordinates)
+                        throws MapControlException {
+    
+        Map map = Revenge.getCurrentGame().getMap();
+        int newRow = coordinates.x-1;
+        int newColumn = coordinates.y-1;
+        
+        if(newRow < 0 || newRow >= map.getRowCount() ||
+           newColumn < 0 || newColumn >= map.getColumnCount()) {
+           throw new MapControlException("Can not move actor to location"
+                   + coordinates.x = ", " + coordinates.y
+                   + "because that location is outside "
+                   + "the bounds of the map.");
+        }
     }
 
     private static RegularScene[] createScenes() {

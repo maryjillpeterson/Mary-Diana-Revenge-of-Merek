@@ -7,7 +7,13 @@
 package byui.cit260.revenge.view;
 
 import byui.cit260.revenge.control.GameControl;
+import byui.cit260.revenge.control.MapControl;
+import byui.cit260.revenge.exceptions.MapControlException;
+import byui.cit260.revenge.model.Actor;
+import java.awt.Point;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import revenge.Revenge;
 
 /**
@@ -15,6 +21,7 @@ import revenge.Revenge;
  * @author mary
  */
 public class MainMenuView extends View {
+    private Point coordinates;
     
     public MainMenuView(){
         super("\n"
@@ -32,11 +39,22 @@ public class MainMenuView extends View {
         String value = (String) obj;
         value = value.toUpperCase();
         char choice = value.charAt(0);
+        Actor actor = null;
+        
+        try{
+        MapControl.moveActorToLocation(actor, coordinates);
+        } catch (MapControlException me) {
+            System.out.println(me.getMessage());
+        }
         
         switch (choice){
             case 'S': //start a new game
             case 's':
-                this.startNewGame();
+        try {
+            this.startNewGame();
+        } catch (MapControlException ex) {
+            Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
                 break;
             case 'H': //display the help menu
             case 'h':
@@ -52,11 +70,13 @@ public class MainMenuView extends View {
             default:
                 System.out.println("\n*** Invalid Menu selection *** Try Again ***");
                 break;
+                
         }
         return false;
     }
+    
 
-    private void startNewGame() {
+    private void startNewGame() throws MapControlException {
                 //create a new game
         GameControl.createNewGame(GameControl.getPlayer());
         

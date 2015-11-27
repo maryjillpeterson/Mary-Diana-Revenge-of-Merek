@@ -33,13 +33,20 @@ public class Revenge {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //create StartProgramView and start the program
+        
+//create StartProgramView and start the program
         StartProgramView startProgramView = new StartProgramView();
+        try {
         startProgramView.startProgram();
         //BattleMenuView battleMenuView = new BattleMenuView();
         //battleMenuView.displayMenu();
         //GameMenuView gameMenuView = new GameMenuView();
         //gameMenuView.displayMenu();
+        } catch (Throwable te) {
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgramView.displayBanner();
+        }
         
     }
 
