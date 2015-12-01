@@ -6,6 +6,8 @@
 
 package byui.cit260.revenge.control;
 
+import byui.cit260.revenge.exceptions.BattleControlException;
+
 /**
  *
  * @author chadepeterson
@@ -29,10 +31,11 @@ public class BattleControl {
         return health;
     }
     
-    public boolean validCharge(int turnNumber, int lastCharge){
+    public boolean validCharge(int turnNumber, int lastCharge) throws BattleControlException{
     
         if(turnNumber == 0){
-            return false;
+            //return false;
+            throw new BattleControlException("This is false.");
         }
         
         boolean validCharge = ((turnNumber - lastCharge)>= 5) || (lastCharge == 0);
