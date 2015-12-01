@@ -36,7 +36,7 @@ public class MapControl {
         return map;
      }
 
-    public static int moveActorsToStartingLocation(Map map) 
+    public static void moveActorsToStartingLocation(Map map) 
                             throws MapControlException {
         Actor[] actors = Actor.values();
         
@@ -45,12 +45,12 @@ public class MapControl {
             MapControl.moveActorToLocation(actor, coordinates);
             
         }
-        return 0;
     }
     
     public static void moveActorToLocation(Actor actor, Point coordinates)
                         throws MapControlException {
-    
+        
+    //determines is new locations is within the boundaries of the map. If no, an error message is returned.
         Map map = Revenge.getCurrentGame().getMap();
         int newRow = coordinates.x-1;
         int newColumn = coordinates.y-1;
@@ -58,7 +58,7 @@ public class MapControl {
         if(newRow < 0 || newRow >= map.getRowCount() ||
            newColumn < 0 || newColumn >= map.getColumnCount()) {
            throw new MapControlException("Can not move actor to location"
-                   + coordinates.x = ", " + coordinates.y
+                   + coordinates.x + ", " + coordinates.y
                    + "because that location is outside "
                    + "the bounds of the map.");
         }
@@ -81,14 +81,14 @@ public class MapControl {
                 "\n You are in a ancient and dark forest."
                +"\n These woods look dangerous.  You should watch out"
                +"\n for bandits and witches.");
-        forestScene.setMapSymbol(" F ");
+        forestScene.setMapSymbol(" # ");
         forestScene.setBlocked(false);
         scenes[SceneType.forest.ordinal()] = forestScene;
         
         RegularScene mountainScene = new RegularScene() {};
         mountainScene.setDescription(
                 "\n The land has become rugged.  In the distance you see a large mountian range.");
-        mountainScene.setMapSymbol(" M ");
+        mountainScene.setMapSymbol(" ^^ ");
         mountainScene.setBlocked(false);
         scenes[SceneType.mountain.ordinal()] = mountainScene;
         
@@ -109,14 +109,14 @@ public class MapControl {
         RegularScene lakeScene = new RegularScene() {};
         lakeScene.setDescription(
                 "\n This is a big lake.");
-        lakeScene.setMapSymbol(" L ");
+        lakeScene.setMapSymbol(" ~~ ");
         lakeScene.setBlocked(false);
         scenes[SceneType.lake.ordinal()] = lakeScene;
         
         RegularScene fieldScene = new RegularScene() {};
         fieldScene.setDescription(
                 "\n You are crossing a field.");
-        fieldScene.setMapSymbol(" F ");
+        fieldScene.setMapSymbol(" - ");
         fieldScene.setBlocked(false);
         scenes[SceneType.field.ordinal()] = fieldScene;
         
@@ -124,7 +124,7 @@ public class MapControl {
         plainLakeScene.setDescription(
                 "\n You are travling through fields and farms."
                +"\n You see a large Lake in the distance.");
-        plainLakeScene.setMapSymbol(" PL ");
+        plainLakeScene.setMapSymbol(" -~ ");
         plainLakeScene.setBlocked(false);
         scenes[SceneType.plainLake.ordinal()] = plainLakeScene;
         
@@ -133,7 +133,7 @@ public class MapControl {
                 "\n You are travling through fields and farms."
                +"\n You see a large Lake in the distance."
                +"\n At the edge of the lake, there a boat dock with a small row boat.");
-        boatDockScene.setMapSymbol(" BD ");
+        boatDockScene.setMapSymbol(" b~ ");
         boatDockScene.setBlocked(false);
         scenes[SceneType.boatDock.ordinal()] = boatDockScene;
         
@@ -142,7 +142,7 @@ public class MapControl {
                 "\n You are travling through fields and farms."
                +"\n You see a large Lake in the distance."
                +"\n At the edge of the lake, there a boat dock with a small row boat.");
-        shoreScene.setMapSymbol(" S ");
+        shoreScene.setMapSymbol(" -~ ");
         shoreScene.setBlocked(false);
         scenes[SceneType.shore.ordinal()] = shoreScene;
         
@@ -150,7 +150,7 @@ public class MapControl {
         riverScene.setDescription(
                 "\n You are travling through fields and farms."
                +"\n There is a large river here.");
-        riverScene.setMapSymbol(" R ");
+        riverScene.setMapSymbol(" |~| ");
         riverScene.setBlocked(false);
         scenes[SceneType.river.ordinal()] = riverScene;
         
