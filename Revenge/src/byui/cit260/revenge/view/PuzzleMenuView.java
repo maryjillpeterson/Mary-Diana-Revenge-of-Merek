@@ -70,4 +70,24 @@ public class PuzzleMenuView extends View {
         }
         return radius;
     }
+    
+    public Double getHeight(){
+        Double height = null;
+        
+        while (height == null){
+            String value = this.getInput();
+            value = value.trim().toUpperCase();
+
+            if (value.equals("Q"))
+                break;
+            
+        try {    
+            height = Double.parseDouble(value);
+        } catch (NumberFormatException nf) {
+            System.out.println("\nYou must enter a valid number."
+                    + "Try again or enter Q to quit.");
+        }
+        }
+        return height;
+    }
 }
