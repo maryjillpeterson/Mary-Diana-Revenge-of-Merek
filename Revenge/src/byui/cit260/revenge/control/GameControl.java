@@ -2,13 +2,19 @@
 
 package byui.cit260.revenge.control;
 
+import byui.cit260.revenge.exceptions.GameControlException;
 import byui.cit260.revenge.exceptions.MapControlException;
 import byui.cit260.revenge.model.Game;
-import byui.cit260.revenge.model.Player;
 import byui.cit260.revenge.model.Inventory;
 import byui.cit260.revenge.model.Item;
 import byui.cit260.revenge.model.Map;
+import byui.cit260.revenge.model.Player;
 import byui.cit260.revenge.model.Satchel;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
 import revenge.Revenge;
 
 /**
@@ -16,6 +22,8 @@ import revenge.Revenge;
  * @author chadepeterson
  */
 public class GameControl {
+    private static String filepath;
+    private static InputStream fips;
     public static void createNewGame(Player player) throws MapControlException{
         
         Game game = new Game();  //create new game
@@ -95,5 +103,25 @@ public class GameControl {
     private static Inventory newInventory() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-}
+
+    public static void getSavedGame(String filePath) 
+                        throws GameControlException, IOException, ClassNotFoundException {
+        Game game = null;
+        
+        try( FileInputStream fips = new FileInputStream(filepath)){
+            ObjectInputStream output = new ObjectInputStream(fips);
+            
+            game = (Game) output.readObject();
+            
+        }
+        catch(FileNotFoundException fnfe) {
+            throw new GameControlException(fnfe.getMessage());
+                }
+        catch(Exception e) {
+            throw new GameControlException(e.getMessage());    
+                }
+        Revenge.setCurrentGame(game);
+        }
+    }
+
 

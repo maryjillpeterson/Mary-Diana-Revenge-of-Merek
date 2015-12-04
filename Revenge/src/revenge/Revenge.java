@@ -18,6 +18,10 @@ import byui.cit260.revenge.view.BattleMenuView;
 import byui.cit260.revenge.view.GameMenuView;
 import byui.cit260.revenge.view.HelpMenuView;
 import byui.cit260.revenge.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 
 /**
@@ -29,6 +33,12 @@ public class Revenge {
     private static Game currentGame = null;
     private static Player player = null;
     
+    private static PrintWriter outFile = null;
+    private static Buffered Reader;
+    private static BufferedReader inFile;
+    
+    private static PrintWriter logFile = null;
+    
     /**
      * @param args the command line arguments
      */
@@ -37,15 +47,45 @@ public class Revenge {
 //create StartProgramView and start the program
         StartProgramView startProgramView = new StartProgramView();
         try {
+            Revenge.inFile = 
+                    new BufferedReader(new InputStreamReader(System.in));
+            
+            Revenge.outFile = new PrintWriter(System.out, true);
+               
+            String filePath = "log.txt";
+            Revenge.logFile = new PrintWriter(filePath);
         startProgramView.startProgram();
+        
         //BattleMenuView battleMenuView = new BattleMenuView();
         //battleMenuView.displayMenu();
         //GameMenuView gameMenuView = new GameMenuView();
         //gameMenuView.displayMenu();
-        } catch (Throwable te) {
-            System.out.println(te.getMessage());
-            te.printStackTrace();
-            startProgramView.displayBanner();
+        //} catch (Throwable te) {
+          //  System.out.println(te.getMessage());
+            //te.printStackTrace();
+            //startProgramView.displayBanner();
+        } catch (Throwable e){
+                System.out.println("Exception: " + e.toString()+
+                                    "\nCause: " + e.getCause() +
+                                    "\nMessage: " + e.getMessage());
+                e.printStackTrace();;
+        
+        }
+        finally {
+            try{
+                if (Revenge.inFile != null)
+                    Revenge.inFile.close();
+            
+                if (Revenge.outFile !=null)
+                    Revenge.outFile.close();
+                
+                if (Revenge.logFile !=null)
+                    Revenge.logFile.close();
+            }
+            catch (IOException ex){
+                System.out.println("Error closing files");
+                return;
+            }
         }
         
     }
@@ -69,6 +109,34 @@ public class Revenge {
     public static Location[][] getLocations() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    public static PrintWriter getOutFile(){
+        return outFile;
+    }
+    
+    public static void setOutFile(PrintWriter outFile){
+        Revenge.outFile = outFile;
+    }
+    
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+    
+    public static void setInFile(BufferedReader inFile) {
+        Revenge.inFile = inFile;
+    }
+
+    private static class inFile {
+
+        public inFile() {
+        }
+    }
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+    public static void setLogFile(PrintWriter logFile){
+        Revenge.logFile = logFile;
+    }
+
     
     
 }

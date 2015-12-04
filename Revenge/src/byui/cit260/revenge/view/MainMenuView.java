@@ -29,7 +29,7 @@ public class MainMenuView extends View {
             +"\n  Main Menu                              "
             +"\n-----------------------------------------"
             +"\nS - Start New Game"
-            +"\nC - Continue Existing Game"
+            +"\nG - Continue Existing Game"
             +"\nH - Get Help on how to play the game"
             +"\nE - Exit"
             +"\n-----------------------------------------");
@@ -60,8 +60,8 @@ public class MainMenuView extends View {
             case 'h':
                 this.displayHelpMenu();
                 break;
-            case 'C': //continue previous game
-            case 'c':
+            case 'G': //continue previous game
+            case 'g':
                 this.continueGame();
                 break;
             case 'E': //exit the program
@@ -92,8 +92,30 @@ public class MainMenuView extends View {
     }
 
     private void continueGame() {
-                //call function to recall savd game
+         //call function to recall savd game
+        // prompt for and get the name of the file to save the game in
+        System.out.println("\n\nEnter the file path for file where the game "
+        + "is to be saved.");
+        
+        String filePath = this.getInput();
+        
+        try {
+            // start a saved game 
+            GameControl.getSavedGame(filePath);
+        
+        } catch(Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
+        // display the game menu
+        GameMenuView gameMenu = GameMenuView();
+        gameMenu.display();
+        
         LoadSavedGameView loadSavedGameView = new LoadSavedGameView();
         loadSavedGameView.LoadSavedGame();
+    }
+
+    private GameMenuView GameMenuView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

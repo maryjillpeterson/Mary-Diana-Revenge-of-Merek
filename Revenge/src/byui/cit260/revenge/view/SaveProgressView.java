@@ -25,7 +25,7 @@ public class SaveProgressView {
     private String getSaveChoice() {
         boolean valid = false; //indicates if the name has to be retrieved
         String saveChoice  = null;
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+        //Scanner keyboard = new Scanner(System.in); //keyboard input stream
         
         while(!valid) { //while a valid name has not been retrieved
             
@@ -33,7 +33,7 @@ public class SaveProgressView {
             System.out.println("Do you want to save your game? Type yes or no");
             
             //get the name from the keyboard and trim off the blank
-            saveChoice = keyboard.nextLine();
+            saveChoice = keyboard.readLine();
             saveChoice = saveChoice.trim();
             
             //if he name is invalid (something other than 1 or 2)

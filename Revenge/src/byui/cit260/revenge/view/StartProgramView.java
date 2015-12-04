@@ -75,7 +75,7 @@ public class StartProgramView {
     private String getPlayersName() {
         boolean valid = false; //indicates if the name has to be retrieved
         String playersName = null;
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+        //Scanner keyboard = new Scanner(System.in); //keyboard input stream
         
         while(!valid) { //while a valid name has not been retrieved
             
@@ -83,7 +83,7 @@ public class StartProgramView {
             System.out.println("Enter the player's name below:");
             
             //get the name from the keyboard and trim off the blank
-            playersName = keyboard.nextLine();
+            playersName = keyboard.readLine();
             playersName = playersName.trim();
             
             //if he name is invalid (less than two characters in length)
@@ -101,6 +101,10 @@ public class StartProgramView {
         System.out.println("\tWelcome to Afenara, " + player.getName());
         System.out.println("\tThe future of the Kingdom is in your hands.");
         System.out.println("====================================================");
+    }
+
+    public void display() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
