@@ -6,18 +6,22 @@
 
 package byui.cit260.revenge.control;
 
+import byui.cit260.revenge.exceptions.QuestControlException;
+
 /**
  *
  * @author chadepeterson
  */
 public class QuestControl {
-    public double calculateVolume(double radius, double height){
+
+
+    public double calculateVolume(double radius, double height) throws QuestControlException{
        if (radius <= 12 && radius >= 24){
-            return -1;
+            throw new QuestControlException("Radius must be between 12 and 24.  Please try again.");
         }
         
         if (height <= 40 && height >= 60){
-            return -1;
+            throw new QuestControlException("Height must be between 40 and 60.  Please try again.");
         }
         
         double volume = 3.14 * radius * radius * height;

@@ -6,16 +6,25 @@
 package byui.cit260.revenge.view;
 
 import byui.cit260.revenge.control.ProgramControl;
+import byui.cit260.revenge.exceptions.ProgramControlException;
 import byui.cit260.revenge.model.Player;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import revenge.Revenge;
 
 /**
  *
  * @author Diana
  */
 public class StartProgramView {  
+    protected final BufferedReader keyboard = Revenge.getInFile();
+    protected final PrintWriter console = Revenge.getOutFile();
     
     public StartProgramView(){
+        
 }
 
     public void startProgram(){
@@ -27,7 +36,12 @@ public class StartProgramView {
     String playersName = this.getPlayersName();
     
     //Create and save the player object
-    Player player = ProgramControl.createPlayer(playersName);
+    Player player = null;
+        try {
+            player = ProgramControl.createPlayer(playersName);
+        } catch (ProgramControlException pce) {
+            System.out.println(pce.getMessage());
+        }
     
     //Display a personalized welcome message
     this.displayWelcomeMessage(player);
@@ -76,14 +90,14 @@ public class StartProgramView {
         boolean valid = false; //indicates if the name has to be retrieved
         String playersName = null;
         //Scanner keyboard = new Scanner(System.in); //keyboard input stream
-        
+        try{
         while(!valid) { //while a valid name has not been retrieved
             
             //prompt for the player's name
             System.out.println("Enter the player's name below:");
             
             //get the name from the keyboard and trim off the blank
-            playersName = keyboard.readLine();
+            playersName = this.keyboard.readLine();
             playersName = playersName.trim();
             
             //if he name is invalid (less than two characters in length)
@@ -92,6 +106,9 @@ public class StartProgramView {
                 continue; // and repeat again
             }
             break; //out of the (exit) the repetition
+        }
+        } catch (Exception e) {
+            System.out.println("Error reading input:" + e.getMessage());
         }
         return playersName; // return the name
     }
@@ -106,5 +123,6 @@ public class StartProgramView {
     public void display() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 
 }
