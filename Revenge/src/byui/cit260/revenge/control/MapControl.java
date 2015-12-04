@@ -50,7 +50,7 @@ public class MapControl {
     public static void moveActorToLocation(Actor actor, Point coordinates)
                         throws MapControlException {
         
-    //moves ctor to new location
+    //moves actor to new location
         Map map = Revenge.getCurrentGame().getMap();
         int newRow = coordinates.x-1;
         int newColumn = coordinates.y-1;

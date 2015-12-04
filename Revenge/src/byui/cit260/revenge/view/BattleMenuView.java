@@ -55,18 +55,19 @@ public class BattleMenuView extends View {
             case 'q':
                 return true;
             default:
-                System.out.println("\n*** Invalid Menu selection *** Try Again ***");
+                ErrorView.display(this.getClass().getName(),
+                        "\n*** Invalid Menu selection *** Try Again ***");
                 break;
         }
          return false;
     }
     
      private void displayBattleHelp() {
-        System.out.println("\n\n-------------------------------------------------------------------------------------");
+        this.console.println("\n\n-------------------------------------------------------------------------------------");
                 
-        System.out.println("\n*                Battle Options                        *");
+        this.console.println("\n*                Battle Options                        *");
         
-        System.out.println("-------------------------------------------------------------------------------------"
+        this.console.println("-------------------------------------------------------------------------------------"
                        + "\n* Strike - Your heroicly strike at your opponent!"
                        + "\n     This attack could cause 2-3 points in damage, if you dont miss."
                        + "\n"
@@ -83,7 +84,7 @@ public class BattleMenuView extends View {
                        + "\n     This action will not restore your health to your pre-battle levels,"
                        + "\n     but it will let you run away to fight another day.");
         
-        System.out.println("-------------------------------------------------------------------------------------");
+        this.console.println("-------------------------------------------------------------------------------------");
     }
 
     private void attackStrike() {

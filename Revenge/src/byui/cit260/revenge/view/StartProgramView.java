@@ -11,8 +11,6 @@ import byui.cit260.revenge.model.Player;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import revenge.Revenge;
 
 /**
@@ -27,7 +25,7 @@ public class StartProgramView {
         
 }
 
-    public void startProgram(){
+    public void startProgram() throws ProgramControlException {
 
     //Display the banner screen
     this.displayBanner();
@@ -40,7 +38,7 @@ public class StartProgramView {
         try {
             player = ProgramControl.createPlayer(playersName);
         } catch (ProgramControlException pce) {
-            System.out.println(pce.getMessage());
+            ErrorView.display("StartProgramView",pce.getMessage());
         }
     
     //Display a personalized welcome message
@@ -52,20 +50,20 @@ public class StartProgramView {
 }
 
     public void displayBanner() {
-        System.out.println("\n\n********************************************************");
+        this.console.println("\n\n********************************************************");
                 
-        System.out.println("*                                                      *"
+        this.console.println("*                                                      *"
                        + "\n*               THE REVENGE OF MEREK                   *"
                        + "\n*                                                      *");
         
-        System.out.println("*                                                      *"
+        this.console.println("*                                                      *"
                        + "\n* The loving and wise King Merek ruled over the land   *"
                        + "\n* of Afenara.  But the evil Orc Worthag has decided    *"
                        + "\n* it was his turn at the helm and overthrew the king.  *"
                        + "\n* The land of Afenara and its people are now suffering *"
                        + "\n* under the rule of Worthag.                           *");
         
-        System.out.println("*                                                      *"
+        this.console.println("*                                                      *"
                        + "\n* You seek to gain the throne back for you father.  To *"
                        + "\n* do so, you will need to seek out the support from the*"
                        + "\n* Lords of each of the five counties across the land.  *"
@@ -74,7 +72,7 @@ public class StartProgramView {
                        + "\n* reestablish King Merek as the righteous ruler over   *"
                        + "\n* the kingdom again.                                   *");
         
-        System.out.println("*                                                      *"
+        this.console.println("*                                                      *"
                        + "\n* To gain the trust of the Lords, you will be given    *"
                        + "\n* several quests.  These quests will involve recovering*"
                        + "\n* valuable lost artifacts, helping villages resolve    *"
@@ -83,7 +81,7 @@ public class StartProgramView {
                        + "\n* completed in each county, you will have all the      *"
                        + "\n* forces you need to defeat Worthag and win the game!  *");
         
-        System.out.println("********************************************************");            
+        this.console.println("********************************************************");            
     }
 
     private String getPlayersName() {
@@ -94,7 +92,7 @@ public class StartProgramView {
         while(!valid) { //while a valid name has not been retrieved
             
             //prompt for the player's name
-            System.out.println("Enter the player's name below:");
+            this.console.println("Enter the player's name below:");
             
             //get the name from the keyboard and trim off the blank
             playersName = this.keyboard.readLine();
@@ -102,22 +100,24 @@ public class StartProgramView {
             
             //if he name is invalid (less than two characters in length)
             if (playersName.length()<2){
-                System.out.println("Invalid name - the name must not be blank");
+                ErrorView.display(this.getClass().getName(),
+                        "Invalid name - the name must not be blank");
                 continue; // and repeat again
             }
             break; //out of the (exit) the repetition
         }
         } catch (Exception e) {
-            System.out.println("Error reading input:" + e.getMessage());
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input:" + e.getMessage());
         }
         return playersName; // return the name
     }
 
     private void displayWelcomeMessage(Player player) {
-        System.out.println("\n\n====================================================");
-        System.out.println("\tWelcome to Afenara, " + player.getName());
-        System.out.println("\tThe future of the Kingdom is in your hands.");
-        System.out.println("====================================================");
+        this.console.println("\n\n====================================================");
+        this.console.println("\tWelcome to Afenara, " + player.getName());
+        this.console.println("\tThe future of the Kingdom is in your hands.");
+        this.console.println("====================================================");
     }
 
     public void display() {

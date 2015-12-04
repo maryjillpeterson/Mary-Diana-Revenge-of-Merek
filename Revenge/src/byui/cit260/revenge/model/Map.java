@@ -5,7 +5,9 @@
  */
 package byui.cit260.revenge.model;
 
+import java.io.PrintWriter;
 import java.io.Serializable;
+import revenge.Revenge;
 
 /**
  *
@@ -18,13 +20,14 @@ public class Map implements Serializable{
     private int columnCount;
     private Location[][] locations;
     private int column;
-
+    protected final PrintWriter console = Revenge.getOutFile();
+    
     public Map() {
     }
 
     public Map(int rowCount, int columnCount) {
         if (rowCount < 1 || columnCount < 1) {
-            System.out.println("The number of rows and columns must be > zero");
+            this.console.println("The number of rows and columns must be > zero");
             return;
         }
         

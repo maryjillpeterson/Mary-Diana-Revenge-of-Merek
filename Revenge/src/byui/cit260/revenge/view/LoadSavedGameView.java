@@ -29,8 +29,8 @@ public class LoadSavedGameView {
     }
         
         public void loadInstructions(){
-            System.out.println("\n\n********************************************************");
-            System.out.println("*                                                      *"
+            this.console.println("\n\n********************************************************");
+            this.console.println("*                                                      *"
                 + "\n*   CONTINUE YOUR QUEST. LOAD YOUR SAVED GAME HERE.    *"
                 + "\n*                                                      *");
         }
@@ -43,7 +43,7 @@ public class LoadSavedGameView {
         while(!valid) { //while a valid name has not been retrieved
             
             //prompt for the player's name
-            System.out.println("Enter the player's name associated with your saved game below:");
+            this.console.println("Enter the player's name associated with your saved game below:");
             
             //get the name from the keyboard and trim off the blank
             playersName = this.keyboard.readLine();
@@ -51,13 +51,15 @@ public class LoadSavedGameView {
             
             //if he name is invalid (less than two characters in length)
             if (playersName.length()<2){
-                System.out.println("Invalid name - the name must not be blank");
+                ErrorView.display(this.getClass().getName(),
+                        "Invalid name - the name must not be blank");
                 continue; // and repeat again
             }
             break; //out of the (exit) the repetition
         }
         } catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
         }
         return playersName; // return the name
     }

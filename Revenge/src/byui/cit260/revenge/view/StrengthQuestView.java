@@ -38,7 +38,8 @@ public class StrengthQuestView extends View {
             case 'n':
                 return true;
             default:
-                System.out.println("\n*** Invalid Menu selection *** Try Again ***");
+                ErrorView.display(this.getClass().getName(),
+                        "\n*** Invalid Menu selection *** Try Again ***");
                 break;
         }
          return false;
