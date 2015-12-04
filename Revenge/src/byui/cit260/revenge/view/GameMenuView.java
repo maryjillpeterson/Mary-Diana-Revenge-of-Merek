@@ -29,7 +29,8 @@ public class GameMenuView extends View {
             +"/nM - Move"
             +"/nS - Save"
             +"/nH - Help"
-            +"/nV - Map"    
+            +"/nV - Map"
+            +"/nP - Print Report"    
             +"/nE - Exit"
             +"/n-----------------------------------------");
     }
@@ -59,6 +60,8 @@ public class GameMenuView extends View {
             case 'H': //Help menu
                 this.viewHelpMenu();
                 break;
+            case 'P': //Print Report
+                this.printReport();
             case 'E': //exit game to main
                 return true;
             default:
@@ -130,6 +133,10 @@ public class GameMenuView extends View {
       //  }
         
    // }
+
+    private void printReport() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 
 }
