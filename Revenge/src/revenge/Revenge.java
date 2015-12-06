@@ -58,15 +58,8 @@ public class Revenge {
             
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.startProgram();
-        
-        //BattleMenuView battleMenuView = new BattleMenuView();
-        //battleMenuView.displayMenu();
-        //GameMenuView gameMenuView = new GameMenuView();
-        //gameMenuView.displayMenu();
-        //} catch (Throwable te) {
-          //  System.out.println(te.getMessage());
-            //te.printStackTrace();
-            //startProgramView.displayBanner();
+       
+
         } catch (Throwable e){
                 System.out.println("Exception: " + e.toString()+
                                     "\nCause: " + e.getCause() +

@@ -14,6 +14,10 @@ import byui.cit260.revenge.model.Map;
 import byui.cit260.revenge.model.RegularScene;
 import byui.cit260.revenge.model.SceneType;
 import java.awt.Point;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import revenge.Revenge;
 
 
@@ -22,6 +26,8 @@ import revenge.Revenge;
  * @author chadepeterson
  */
 public class MapControl {
+    private static String filepath;
+    private static OutputStream fops;
 
     static Map createMap() {
         //create the map
@@ -262,4 +268,16 @@ public class MapControl {
 
     }
     
-}
+    public static void printMap(Map map, String filepath) throws MapControlException, IOException {
+        
+        try(FileOutputStream fops = new FileOutputStream(filepath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(map);  //write the map object out to the file
+        }
+        catch (IOException e) {
+                throw new MapControlException(e.getMessage());
+                }
+        }
+    }
+

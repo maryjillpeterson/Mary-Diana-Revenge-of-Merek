@@ -5,7 +5,9 @@
  */
 package byui.cit260.revenge.view;
 
+import byui.cit260.revenge.control.MapControl;
 import java.util.Scanner;
+import revenge.Revenge;
 
 /**
  *
@@ -19,6 +21,7 @@ public class HelpMenuView extends View {
             + "\n------------------------------------------------------"
             + "\nG - Goal of the Game"
             + "\nM - How to move around"
+            + "\nP - Print Map"
             + "\nE - Exit"
             + "\n------------------------------------------------------");
     }
@@ -38,6 +41,10 @@ public class HelpMenuView extends View {
             case 'M': //display how to move around
             case 'm':
                 this.displayMove();
+                break;
+            case 'P': //print the map
+            case 'p':
+                this.printMap();
                 break;
             case 'E': //exit the help menu
             case 'e':
@@ -96,6 +103,18 @@ public class HelpMenuView extends View {
                        + "\n* W - West");
         
         this.console.println("********************************************************");
+    }
+
+    private void printMap() {
+        this.console.println("\nEnter the file path where the map is to be stored.");
+        String filePath = this.getInput();
+        
+        try{
+            MapControl.printMap(Revenge.getMap(),filepath);
+        }catch (Exception ex) {
+            ErrorView.display(this.getClass().getName(),
+                    ex.getMessage());
+        }
     }
 
     

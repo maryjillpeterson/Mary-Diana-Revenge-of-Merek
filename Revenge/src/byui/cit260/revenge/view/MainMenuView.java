@@ -30,7 +30,7 @@ public class MainMenuView extends View {
             +"\n-----------------------------------------"
             +"\nS - Start New Game"
             +"\nG - Continue Existing Game"
-            +"\nH - Get Help on how to play the game"
+            +"\nH - Get Help on How to Play the Game"
             +"\nE - Exit"
             +"\n-----------------------------------------");
     }
@@ -105,14 +105,13 @@ public class MainMenuView extends View {
         }
         
         // display the game menu
-        GameMenuView gameMenu = GameMenuView();
+        GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
         
         LoadSavedGameView loadSavedGameView = new LoadSavedGameView();
         loadSavedGameView.LoadSavedGame();
     }
 
-    private GameMenuView GameMenuView() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
+
 }

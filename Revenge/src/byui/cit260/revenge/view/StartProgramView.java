@@ -99,7 +99,7 @@ public class StartProgramView {
             playersName = playersName.trim();
             
             //if he name is invalid (less than two characters in length)
-            if (playersName.length()<2){
+            if (playersName.length()<1){
                 ErrorView.display(this.getClass().getName(),
                         "Invalid name - the name must not be blank");
                 continue; // and repeat again
@@ -120,9 +120,6 @@ public class StartProgramView {
         this.console.println("====================================================");
     }
 
-    public void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 
 }

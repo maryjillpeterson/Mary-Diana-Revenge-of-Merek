@@ -46,7 +46,8 @@ public class GameControl {
     }
 
     public static Player getPlayer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Player player = Revenge.getPlayer();
+        return player;
     }
 
     public static Inventory[] getSortedInventoryList() {
