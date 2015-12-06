@@ -97,7 +97,17 @@ public class GameMenuView extends View {
     }
 
     private void saveGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //prompt for and get the name of the file to save the game in 
+        System.out.println("\n\nEnter the file path for file where the game "
+        + "is to be saved.");
+        String filePath = this.getInput();
+        
+        try {
+        //save the game to the specified file
+        GameControl.saveGame(Revenge.getCurrentGame(),filePath);
+        } catch (Exception ex){
+            ErrorView.display("GameMenuView", ex.getMessage());
+        }
     }
 
     private void viewHelpMenu() {
