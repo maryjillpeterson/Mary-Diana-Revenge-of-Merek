@@ -12,9 +12,11 @@ import byui.cit260.revenge.model.Player;
 import byui.cit260.revenge.model.Satchel;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import revenge.Revenge;
 
 /**
@@ -24,6 +26,7 @@ import revenge.Revenge;
 public class GameControl {
     private static String filepath;
     private static InputStream fips;
+    private static Object game;
     public static void createNewGame(Player player) throws MapControlException{
         
         Game game = new Game();  //create new game
@@ -123,6 +126,20 @@ public class GameControl {
                 }
         Revenge.setCurrentGame(game);
         }
+
+    public static void saveGame(Game currentGame, String filePath) 
+        throws GameControlException {
+        try( FileOutputStream fops = new FileOutputStream(filepath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game); //write the game object out to file
+            
+        }
+        catch(IOException e) {
+            throw new GameControlException(e.getMessage());
+        }
+    
+    }
     }
 
 
