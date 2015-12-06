@@ -6,6 +6,7 @@
 
 package byui.cit260.revenge.control;
 
+import byui.cit260.revenge.exceptions.QuestControlException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,7 +33,7 @@ public class questControlTest {
      * Test of calculateVolume method, of class questControl.
      */
     @Test
-    public void testCalculateVolume() {
+    public void testCalculateVolume() throws QuestControlException {
         System.out.println("calculateVolume");
         
         /**************************

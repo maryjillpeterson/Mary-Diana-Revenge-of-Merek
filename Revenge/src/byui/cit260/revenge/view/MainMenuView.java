@@ -41,19 +41,15 @@ public class MainMenuView extends View {
         char choice = value.charAt(0);
         Actor actor = null;
         
-        try{
-        MapControl.moveActorToLocation(actor, coordinates);
-        } catch (MapControlException me) {
-            System.out.println(me.getMessage());
-        }
-        
         switch (choice){
             case 'S': //start a new game
             case 's':
-        try {
-            this.startNewGame();
-        } catch (MapControlException ex) {
-            Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        {
+            try {
+                this.startNewGame();
+            } catch (MapControlException mce) {
+                ErrorView.display("MainMenuView", mce.getMessage());
+            }
         }
                 break;
             case 'H': //display the help menu
@@ -68,7 +64,8 @@ public class MainMenuView extends View {
             case 'e':
                 return true;
             default:
-                System.out.println("\n*** Invalid Menu selection *** Try Again ***");
+                ErrorView.display(this.getClass().getName(),
+                        "\n*** Invalid Menu selection *** Try Again ***");
                 break;
                 
         }

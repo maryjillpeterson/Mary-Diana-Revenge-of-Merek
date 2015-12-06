@@ -5,6 +5,7 @@
  */
 package byui.cit260.revenge.control;
 
+import byui.cit260.revenge.exceptions.ProgramControlException;
 import byui.cit260.revenge.model.Player;
 import revenge.Revenge;
 
@@ -14,10 +15,11 @@ import revenge.Revenge;
  */
 public class ProgramControl {
 
-    public static Player createPlayer(String name) {
+    public static Player createPlayer(String name) 
+                            throws ProgramControlException {
         
         if (name == null){
-            return null;
+            throw new ProgramControlException("Player name cannot be empty.");
         }
         
         Player player = new Player();

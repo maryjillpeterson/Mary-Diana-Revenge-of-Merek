@@ -50,11 +50,12 @@ public class MapControl {
     public static void moveActorToLocation(Actor actor, Point coordinates)
                         throws MapControlException {
         
-    //determines is new locations is within the boundaries of the map. If no, an error message is returned.
+    //moves actor to new location
         Map map = Revenge.getCurrentGame().getMap();
         int newRow = coordinates.x-1;
         int newColumn = coordinates.y-1;
         
+        //determines if new locations is within the boundaries of the map. If no, an error message is returned.
         if(newRow < 0 || newRow >= map.getRowCount() ||
            newColumn < 0 || newColumn >= map.getColumnCount()) {
            throw new MapControlException("Can not move actor to location"

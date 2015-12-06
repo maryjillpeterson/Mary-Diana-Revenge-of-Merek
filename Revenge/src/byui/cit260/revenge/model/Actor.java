@@ -27,7 +27,7 @@ public enum Actor implements Serializable{
     Maltev("Hero of the County Walt"),
     Kanto("Hero of the County Keets"),
     Altin("Warrior of the County TrebleCliff"),
-    Extacrucious("Warrior o the County Upton"),
+    Extacrucious("Warrior of the County Upton"),
     Gizellia("An old witch with a riddle.");
     
     //class instance variable

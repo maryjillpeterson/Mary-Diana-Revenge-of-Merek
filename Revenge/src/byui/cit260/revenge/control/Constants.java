@@ -11,5 +11,5 @@ package byui.cit260.revenge.control;
  */
 public class Constants {
 
-final static int NUMBER_OF_INVENTORY_ITEMS = 2;  
+final static int NUMBER_OF_INVENTORY_ITEMS = 3;  
 }

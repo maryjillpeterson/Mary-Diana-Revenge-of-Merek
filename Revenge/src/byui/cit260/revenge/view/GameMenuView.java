@@ -65,7 +65,7 @@ public class GameMenuView extends View {
             case 'E': //exit game to main
                 return true;
             default:
-                System.out.println("\n*** Invalid Menu selection *** Try Again ***");
+                this.console.println("\n*** Invalid Menu selection *** Try Again ***");
                 break;
         }
         return false;
@@ -75,14 +75,14 @@ public class GameMenuView extends View {
         //get sorted list of inventory items for the current game
         Inventory[] inventory = GameControl.getSortedInventoryList();
         
-        System.out.println("\nList of Inventory Items");
-        System.out.println("Description" + "\t" +
+        this.console.println("\nList of Inventory Items");
+        this.console.println("Description" + "\t" +
                                 "Required" + "\t" +
                                 "In Stock");
         
         //for each inventory item
         for (Inventory inventoryItem : inventory) {
-            System.out.println(inventoryItem.getDescription() +"\t     " +
+            this.console.println(inventoryItem.getDescription() +"\t     " +
                                 inventoryItem.getRequiredAmount() + "\t      " +
                                 inventoryItem.getQuantityInStock());
         }

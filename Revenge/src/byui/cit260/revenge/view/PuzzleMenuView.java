@@ -37,7 +37,8 @@ public class PuzzleMenuView extends View {
             case 'n':
                 return true;
             default:
-                System.out.println("\n*** Invalid Menu selection *** Try Again ***");
+                ErrorView.display(this.getClass().getName(),
+                        "\n*** Invalid Menu selection *** Try Again ***");
                 break;
         }
          return false;
@@ -45,10 +46,10 @@ public class PuzzleMenuView extends View {
      
      private void displayPuzzle() {
 
-        System.out.println("\n------------------------------------------------------"
+        this.console.println("\n------------------------------------------------------"
             + "\nThe villagers need to build a barrel to hold between 250 and 270"
             + "\nliters of fish oil.  They do not know how tall or wide the barrel"
-            + "\nshould be and they need your wisdom.");
+            + "\nshould be and they need your wisdom."); 
     }
        
     public Double getRadius(){
@@ -63,8 +64,8 @@ public class PuzzleMenuView extends View {
             
         try {    
             radius = Double.parseDouble(value);
-        } catch (NumberFormatException nf) {
-            System.out.println("\nYou must enter a valid number."
+        } catch (NumberFormatException nfe) {
+            this.console.println("\nYou must enter a valid number."
                     + "Try again or enter Q to quit.");
         }
         }
@@ -83,11 +84,15 @@ public class PuzzleMenuView extends View {
             
         try {    
             height = Double.parseDouble(value);
-        } catch (NumberFormatException nf) {
-            System.out.println("\nYou must enter a valid number."
+        } catch (NumberFormatException nfe) {
+            this.console.println("\nYou must enter a valid number."
                     + "Try again or enter Q to quit.");
         }
+        
         }
         return height;
     }
+    
+    
 }
+

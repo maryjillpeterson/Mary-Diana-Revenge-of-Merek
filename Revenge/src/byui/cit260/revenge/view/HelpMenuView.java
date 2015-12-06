@@ -43,20 +43,21 @@ public class HelpMenuView extends View {
             case 'e':
                 return true;
             default:
-                System.out.println("\n*** Invalid Menu selection *** Try Again ***");
+                ErrorView.display(this.getClass().getName(),
+                        "\n*** Invalid Menu selection *** Try Again ***");
                 break;
         }
         return false;
     }
 
     private void displayGoal() {
-        System.out.println("\n\n********************************************************");
+        this.console.println("\n\n********************************************************");
                 
-        System.out.println("*                                                      *"
+        this.console.println("*                                                      *"
                        + "\n*               Goal of the Game                       *"
                        + "\n*                                                      *");
         
-        System.out.println("*                                                      *"
+        this.console.println("*                                                      *"
                        + "\n* In this game, you are the son of the overthrown king,*"
                        + "\n* King Merek.  You seek to gain the throne back for    *" 
                        + "\n* your father.  To do this, you will need to seek out  *"
@@ -66,7 +67,7 @@ public class HelpMenuView extends View {
                        + "\n* reestablish King Merek as the righteous ruler over   *"
                        + "\n* the kingdom again.                                   *");
         
-        System.out.println("*                                                      *"
+        this.console.println("*                                                      *"
                        + "\n* To gain the trust of the Lords, you will be given    *"
                        + "\n* several quests.  These quests will involve recovering*"
                        + "\n* valuable lost artifacts, helping villages resolve    *"
@@ -75,18 +76,18 @@ public class HelpMenuView extends View {
                        + "\n* completed in each county, you will have all the      *"
                        + "\n* forces you need to defeat Worthag and win the game!  *");
         
-        System.out.println("********************************************************");
+        this.console.println("********************************************************");
         
     }
 
     private void displayMove() {
-        System.out.println("\n\n********************************************************");
+        this.console.println("\n\n********************************************************");
                 
-        System.out.println("*                                                      *"
+        this.console.println("*                                                      *"
                        + "\n*            Moving Around the Game                    *"
                        + "\n*                                                      *");
         
-        System.out.println("*                                                      *"
+        this.console.println("*                                                      *"
                        + "\n* To move from scene to scene, enter the following"
                        + "\n* commands: "
                        + "\n* N - North"
@@ -94,7 +95,7 @@ public class HelpMenuView extends View {
                        + "\n* S - South"
                        + "\n* W - West");
         
-        System.out.println("********************************************************");
+        this.console.println("********************************************************");
     }
 
     

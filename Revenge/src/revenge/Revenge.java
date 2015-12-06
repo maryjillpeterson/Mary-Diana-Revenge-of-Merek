@@ -34,8 +34,7 @@ public class Revenge {
     private static Player player = null;
     
     private static PrintWriter outFile = null;
-    private static Buffered Reader;
-    private static BufferedReader inFile;
+    private static BufferedReader inFile = null;
     
     private static PrintWriter logFile = null;
     
@@ -45,15 +44,19 @@ public class Revenge {
     public static void main(String[] args) {
         
 //create StartProgramView and start the program
-        StartProgramView startProgramView = new StartProgramView();
+        
         try {
+            //open character stream files for end user input and output
             Revenge.inFile = 
                     new BufferedReader(new InputStreamReader(System.in));
             
             Revenge.outFile = new PrintWriter(System.out, true);
-               
+            
+            //open log file
             String filePath = "log.txt";
             Revenge.logFile = new PrintWriter(filePath);
+            
+        StartProgramView startProgramView = new StartProgramView();
         startProgramView.startProgram();
         
         //BattleMenuView battleMenuView = new BattleMenuView();
@@ -69,7 +72,6 @@ public class Revenge {
                                     "\nCause: " + e.getCause() +
                                     "\nMessage: " + e.getMessage());
                 e.printStackTrace();;
-        
         }
         finally {
             try{
@@ -125,11 +127,6 @@ public class Revenge {
         Revenge.inFile = inFile;
     }
 
-    private static class inFile {
-
-        public inFile() {
-        }
-    }
     public static PrintWriter getLogFile() {
         return logFile;
     }

@@ -6,13 +6,19 @@
 
 package byui.cit260.revenge.view;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import revenge.Revenge;
 
 /**
  *
  * @author maryjillpeterson
  */
 public class LoadSavedGameView {
+    protected final BufferedReader keyboard = Revenge.getInFile();
+    protected final PrintWriter console = Revenge.getOutFile();
+        
     public LoadSavedGameView(){
     }        
         public void LoadSavedGame() {
@@ -23,8 +29,8 @@ public class LoadSavedGameView {
     }
         
         public void loadInstructions(){
-            System.out.println("\n\n********************************************************");
-            System.out.println("*                                                      *"
+            this.console.println("\n\n********************************************************");
+            this.console.println("*                                                      *"
                 + "\n*   CONTINUE YOUR QUEST. LOAD YOUR SAVED GAME HERE.    *"
                 + "\n*                                                      *");
         }
@@ -33,22 +39,27 @@ public class LoadSavedGameView {
         boolean valid = false; //indicates if the name has to be retrieved
         String playersName = null;
         //Scanner keyboard = new Scanner(System.in); //keyboard input stream
-        
+        try {
         while(!valid) { //while a valid name has not been retrieved
             
             //prompt for the player's name
-            System.out.println("Enter the player's name associated with your saved game below:");
+            this.console.println("Enter the player's name associated with your saved game below:");
             
             //get the name from the keyboard and trim off the blank
-            playersName = keyboard.readLine();
+            playersName = this.keyboard.readLine();
             playersName = playersName.trim();
             
             //if he name is invalid (less than two characters in length)
             if (playersName.length()<2){
-                System.out.println("Invalid name - the name must not be blank");
+                ErrorView.display(this.getClass().getName(),
+                        "Invalid name - the name must not be blank");
                 continue; // and repeat again
             }
             break; //out of the (exit) the repetition
+        }
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
         }
         return playersName; // return the name
     }
