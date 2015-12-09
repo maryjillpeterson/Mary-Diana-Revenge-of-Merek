@@ -39,7 +39,7 @@ public class Map implements Serializable{
         
         for (int row = 0; row < rowCount; row++) {
             for (int column = 0; column < columnCount; column++) {
-                //create and initialie new Location objet instance
+                //create and initialie new Location object instance
                 Location location = new Location();
                 location.setColumn(column);
                 location.setRow(row);
@@ -98,8 +98,8 @@ public class Map implements Serializable{
     }
 
     public Location[][] getLocations() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return locations;
     }
-    
+
     
 }

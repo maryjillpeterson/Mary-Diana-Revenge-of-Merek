@@ -6,6 +6,9 @@
 package byui.cit260.revenge.view;
 
 import byui.cit260.revenge.control.MapControl;
+import byui.cit260.revenge.exceptions.MapControlException;
+import byui.cit260.revenge.model.Map;
+import java.io.IOException;
 import java.util.Scanner;
 import revenge.Revenge;
 
@@ -44,7 +47,13 @@ public class HelpMenuView extends View {
                 break;
             case 'P': //print the map
             case 'p':
+        {
+            try{
                 this.printMap();
+            } catch (MapControlException mce) {
+                 ErrorView.display("MainMenuView", mce.getMessage());
+            }
+        }
                 break;
             case 'E': //exit the help menu
             case 'e':
@@ -105,16 +114,16 @@ public class HelpMenuView extends View {
         this.console.println("********************************************************");
     }
 
-    private void printMap() {
+    private void printMap() throws MapControlException {
         this.console.println("\nEnter the file path where the map is to be stored.");
         String filePath = this.getInput();
-        
-        try{
-            MapControl.printMap(Revenge.getMap(),filepath);
-        }catch (Exception ex) {
-            ErrorView.display(this.getClass().getName(),
-                    ex.getMessage());
-        }
+        System.out.println("need to build map");
+        //try{
+           // MapControl.printMap(Revenge.getCurrentGame().getMap(), filePath);
+        //}catch (MapControlException | IOException mce) {
+          //  ErrorView.display(this.getClass().getName(),
+          //          mce.getMessage());
+        //}
     }
 
     

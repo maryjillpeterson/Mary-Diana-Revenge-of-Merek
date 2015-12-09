@@ -12,7 +12,7 @@ package byui.cit260.revenge.view;
 class MoveActorView extends View {
 
     public MoveActorView() {
-        super("\nInput direct: N, E, S, or W:");
+        super("\n Where would you like to go: N, E, S, or W?");
     }
 
      @Override

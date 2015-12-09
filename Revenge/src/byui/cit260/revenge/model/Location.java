@@ -77,11 +77,12 @@ public class Location implements Serializable{
     }
 
     void setVisited(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.visited = visited;
     }
 
     public void setScene(RegularScene scene) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.scene = scene;
+        
     }
     
     

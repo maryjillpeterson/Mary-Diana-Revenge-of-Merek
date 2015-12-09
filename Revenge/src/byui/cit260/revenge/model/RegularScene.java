@@ -16,6 +16,8 @@ public class RegularScene implements Serializable{
     
     //class instance variables
     private String description;
+    private String mapSymbol;
+    private Boolean blocked;
 
     public RegularScene() {
     }
@@ -56,11 +58,11 @@ public class RegularScene implements Serializable{
     }
 
     public void setMapSymbol(String _st_) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.mapSymbol = mapSymbol;
     }
 
     public void setBlocked(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.blocked = blocked;
     }
     
 }

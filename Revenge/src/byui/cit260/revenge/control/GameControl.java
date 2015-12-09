@@ -66,8 +66,8 @@ public class GameControl {
         Inventory tempInventory;
         for (int i = 0; i < inventoryList.length-1; i++){
             for (int j = 0; j < inventoryList.length-1-i; j++) {
-                if (inventoryList[j].getDescription().
-                        compareToIgnoreCase(inventoryList[j+1].getDescription()) > 0) {
+                if (inventoryList[j].getItemDescription().
+                        compareToIgnoreCase(inventoryList[j+1].getItemDescription()) > 0) {
                         tempInventory = inventoryList[j];
                         inventoryList[j] = inventoryList[j+1];
                         inventoryList[j+1] = tempInventory;
@@ -82,19 +82,19 @@ public class GameControl {
         // create array(list) of inventory items
         Inventory[] inventory = new Inventory[Constants.NUMBER_OF_INVENTORY_ITEMS];
         
-        Inventory potion = newInventory();
+        Inventory potion = new Inventory();
         potion.setItemDescription("Potion");
         potion.setQuantityItem(0);
         potion.setEquipped(null);
         inventory[Item.potion.ordinal()] = potion;
         
-        Inventory bandage = newInventory();
+        Inventory bandage = new Inventory();
         bandage.setItemDescription("Bandage");
         bandage.setQuantityItem(0);
         bandage.setEquipped(null);
         inventory[Item.bandage.ordinal()] = bandage;
         
-        Inventory artifact = newInventory();
+        Inventory artifact = new Inventory();
         artifact.setItemDescription("Artifact");
         artifact.setQuantityItem(0);
         artifact.setEquipped(null);
@@ -103,16 +103,13 @@ public class GameControl {
         return inventory;
     }
 
-
-    private static Inventory newInventory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public static void getSavedGame(String filePath) 
                         throws GameControlException, IOException, ClassNotFoundException {
+        @SuppressWarnings("LocalVariableHidesMemberVariable")
         Game game = null;
         
-        try( FileInputStream fips = new FileInputStream(filepath)){
+        try(@SuppressWarnings("LocalVariableHidesMemberVariable")
+ FileInputStream fips = new FileInputStream(filepath)){
             ObjectInputStream output = new ObjectInputStream(fips);
             
             game = (Game) output.readObject();
@@ -129,7 +126,7 @@ public class GameControl {
 
     public static void saveGame(Game currentGame, String filePath) 
         throws GameControlException {
-        try( FileOutputStream fops = new FileOutputStream(filepath)){
+        try( FileOutputStream fops = new FileOutputStream(filePath)){
             ObjectOutputStream output = new ObjectOutputStream(fops);
             
             output.writeObject(game); //write the game object out to file
@@ -140,6 +137,6 @@ public class GameControl {
         }
     
     }
-    }
+}
 
 

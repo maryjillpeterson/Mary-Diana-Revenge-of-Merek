@@ -31,9 +31,9 @@ public class MapControl {
 
     static Map createMap() {
         //create the map
-        Map map = new Map(7,10);
+        Map map = new Map(8,11);
         
-        //create a list of the differnt scenes in the game
+        //create a list of the different scenes in the game
         RegularScene[] scenes = createScenes();
         
         //assign the different scenes to locations in the map
@@ -86,16 +86,15 @@ public class MapControl {
         RegularScene forestScene = new RegularScene() {};
         forestScene.setDescription(
                 "\n You are in a ancient and dark forest."
-               +"\n These woods look dangerous.  You should watch out"
-               +"\n for bandits and witches.");
-        forestScene.setMapSymbol(" # ");
+               +"\n These woods look dangerous.");
+        forestScene.setMapSymbol("####");
         forestScene.setBlocked(false);
         scenes[SceneType.forest.ordinal()] = forestScene;
         
         RegularScene mountainScene = new RegularScene() {};
         mountainScene.setDescription(
                 "\n The land has become rugged.  In the distance you see a large mountian range.");
-        mountainScene.setMapSymbol(" ^^ ");
+        mountainScene.setMapSymbol("^^^^");
         mountainScene.setBlocked(false);
         scenes[SceneType.mountain.ordinal()] = mountainScene;
         
@@ -265,7 +264,6 @@ public class MapControl {
         locations[7][7].setScene(scenes[SceneType.village.ordinal()]);
         locations[7][8].setScene(scenes[SceneType.village.ordinal()]);
         locations[7][9].setScene(scenes[SceneType.shore.ordinal()]);
-
     }
     
     public static void printMap(Map map, String filepath) throws MapControlException, IOException {

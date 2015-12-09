@@ -21,18 +21,18 @@ public class GameMenuView extends View {
 
     
     public GameMenuView(){
-        super("/n-----------------------------------------"
-            +"/n  Game Play Menu                              "
-            +"/n-----------------------------------------"
-            +"/nI - Inventory"
-            +"/nQ - Quests"
-            +"/nM - Move"
-            +"/nS - Save"
-            +"/nH - Help"
-            +"/nV - Map"
-            +"/nP - Print Report"    
-            +"/nE - Exit"
-            +"/n-----------------------------------------");
+        super("\n-----------------------------------------"
+            +"\n  Game Play Menu "
+            +"\n-----------------------------------------"
+            +"\nI - Inventory"
+            +"\nQ - Quests"
+            +"\nM - Move"
+            +"\nS - Save"
+            +"\nH - Help"
+            +"\nV - Map"
+            +"\nP - Print Report"    
+            +"\nE - Exit"
+            +"\n-----------------------------------------");
     }
    
     @Override
@@ -76,30 +76,27 @@ public class GameMenuView extends View {
         Inventory[] inventory = GameControl.getSortedInventoryList();
         
         this.console.println("\nList of Inventory Items");
-        this.console.println("Description" + "\t" +
-                                "Required" + "\t" +
-                                "In Stock");
+        this.console.println("Description" + "\t" + "On Hand");
         
         //for each inventory item
         for (Inventory inventoryItem : inventory) {
-            this.console.println(inventoryItem.getDescription() +"\t     " +
-                                inventoryItem.getRequiredAmount() + "\t      " +
-                                inventoryItem.getQuantityInStock());
+            this.console.println(inventoryItem.getItemDescription() +"\t     " +
+                                inventoryItem.getQuantityItem());
         }
     }
 
     private void viewQuests() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            System.out.println("Need to build array Quests similar to Inventoy");
     }
 
     private void move() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        MoveActorView moveActorView = new MoveActorView();
+        moveActorView.display();
     }
 
     private void saveGame() {
         //prompt for and get the name of the file to save the game in 
-        System.out.println("\n\nEnter the file path for file where the game "
-        + "is to be saved.");
+        System.out.println("\n\nEnter the file path for file where the game is to be saved.");
         String filePath = this.getInput();
         
         try {
@@ -119,7 +116,7 @@ public class GameMenuView extends View {
     private void displayMap() {
        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }  
-       // Location[] [] locations = Revenge.getLocations();
+       // Location[] [] locations = Map.getLocations();
         
    
         //System.out.println("\n\n====================================================");
