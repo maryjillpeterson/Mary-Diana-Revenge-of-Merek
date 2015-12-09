@@ -7,15 +7,16 @@
 package byui.cit260.revenge.view;
 
 import byui.cit260.revenge.control.GameControl;
-import byui.cit260.revenge.model.Game;
+import byui.cit260.revenge.model.Actor;
 import byui.cit260.revenge.model.Inventory;
-import byui.cit260.revenge.model.Location;
-import java.util.Scanner;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import revenge.Revenge;
 
 /**
  *
- * @author chadepeterson
+ * @author mary and diana
  */
 public class GameMenuView extends View {
 
@@ -60,8 +61,8 @@ public class GameMenuView extends View {
             case 'H': //Help menu
                 this.viewHelpMenu();
                 break;
-            case 'P': //Print Report
-                this.printReport();
+            case 'P': //Print Actor Report
+                this.printActorReport();
             case 'E': //exit game to main
                 return true;
             default:
@@ -140,10 +141,36 @@ public class GameMenuView extends View {
       //  }
         
    // }
+    private void printActorReport(ArrayList<Actor> Actor, 
+            String outputLocation) {
+        
+        this.console.println("\nEnter the file path where the map is to be stored.");
+        String filePath = this.getInput();
+        
+        try (PrintWriter out = new PrintWriter(outputLocation)){
+            
+            //print title and column headings 
+            out.println("\n\n        Actor Report       ");
+            out.printf("%n%-20s%10s%10s", "Actor", "Description", "Coordinate");
+            out.printf("%n%-20s%10s%10s", "-----------------", "----------------", "-----------------");
+            
+            //print the description, and coordinate of each actor.
+            for(Actor item : Actor) {
+                out.printf("%n%-20s%7d%13.2f", item.getDescription()
+                                                , item.getCoordinates());
+                }
+        } catch (IOException ex){
+            System.out.println("I/O Error: " + ex.getMessage());
+        }
+    }
 
-    private void printReport() {
+    private void printActorReport() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
+
+    
 
 
 }
