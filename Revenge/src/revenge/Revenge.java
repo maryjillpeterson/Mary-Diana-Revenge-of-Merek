@@ -26,7 +26,7 @@ import java.io.PrintWriter;
 
 /**
  *
- * @author marypeterson
+ * @author Diana and Mary
  */
 public class Revenge {
 

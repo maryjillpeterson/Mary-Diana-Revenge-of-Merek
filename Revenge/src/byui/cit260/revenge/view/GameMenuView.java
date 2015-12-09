@@ -9,6 +9,8 @@ package byui.cit260.revenge.view;
 import byui.cit260.revenge.control.GameControl;
 import byui.cit260.revenge.model.Actor;
 import byui.cit260.revenge.model.Inventory;
+import byui.cit260.revenge.model.Quest;
+import static byui.cit260.revenge.model.SceneType.quest;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -87,7 +89,23 @@ public class GameMenuView extends View {
     }
 
     private void viewQuests() {
-            System.out.println("Need to build array Quests similar to Inventoy");
+        //get sorted list of available quests.
+        Quest[] quest = GameControl.getSortedQuestList();
+        
+        this.console.println("\nList of Quests that are Available");
+        this.console.println("Description" + "\t" + "On Hand");
+        
+        //for each quest
+        for(Quest questItem : quest) {
+            this.console.println(questItem.getQuestName() + "\t        " +
+                    questItem.getQuestType() + "\t     " + 
+                    questItem.getQuestCounty() + "\t      " +
+                    questItem.getAvailable() + "\t       " +
+                    questItem.getComplete() + "\t       "
+            );
+        }
+        
+        
     }
 
     private void move() {
@@ -166,6 +184,12 @@ public class GameMenuView extends View {
 
     private void printActorReport() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static class Quests {
+
+        public Quests() {
+        }
     }
 
    

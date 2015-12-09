@@ -15,7 +15,7 @@ public class StrengthQuestView extends View {
     
     public StrengthQuestView(Battle opponent){
         super("\n------------------------------------------------------"
-            + "\nTo conplete the Quest of Strength you must battle one"
+            + "\nTo complete the Quest of Strength you must battle one"
             + "\nof the lord's best warriors.  For this battle, he has"
             + "\nchosen " + opponent + " as your opponent."
             + "\n------------------------------------------------------"

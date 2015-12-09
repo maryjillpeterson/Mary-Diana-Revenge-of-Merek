@@ -5,11 +5,12 @@
  */
 package byui.cit260.revenge.model;
 
+import static byui.cit260.revenge.model.SceneType.quest;
 import java.io.Serializable;
 
 /**
  *
- * @author Diana
+ * @author Diana and Mary
  */
 public class Game implements Serializable{
     
@@ -21,6 +22,7 @@ public class Game implements Serializable{
     private String[] actor;
     private Map map;
     private Satchel satchel;
+    private Quest[] quest;
     
     
 
@@ -103,5 +105,14 @@ public class Game implements Serializable{
         return true;
     }
 
+    public Quest[] getQuest() {
+        return quest;
+    }
+
+    public void setQuest(Quest[] quest) {
+        this.quest = quest;
+    }
+
 
 }
+

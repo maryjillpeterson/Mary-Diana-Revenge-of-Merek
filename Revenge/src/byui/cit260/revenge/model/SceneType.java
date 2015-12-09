@@ -8,7 +8,7 @@ package byui.cit260.revenge.model;
 
 /**
  *
- * @author chadepeterson
+ * @author Diana and Mary
  */
 public enum SceneType {
     start,

@@ -8,7 +8,7 @@ package byui.cit260.revenge.model;
 
 /**
  *
- * @author chadepeterson
+ * @author Diana and Mary 
  */
  
     public enum Item { ////  I'm not sure if this is the right place for this.

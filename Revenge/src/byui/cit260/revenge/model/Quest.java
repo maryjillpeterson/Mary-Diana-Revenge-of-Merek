@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  *
- * @author chadepeterson
+ * @author Diana and Mary
  */
 public class Quest implements Serializable{
     

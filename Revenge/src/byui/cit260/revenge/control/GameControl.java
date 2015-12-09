@@ -9,6 +9,7 @@ import byui.cit260.revenge.model.Inventory;
 import byui.cit260.revenge.model.Item;
 import byui.cit260.revenge.model.Map;
 import byui.cit260.revenge.model.Player;
+import byui.cit260.revenge.model.Quest;
 import byui.cit260.revenge.model.Satchel;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -37,6 +38,10 @@ public class GameControl {
         //create Inventory list and save in game
         Inventory[] inventoryList = GameControl.createInventoryList();
         game.setInventory(inventoryList);
+        
+        //create Quest list and save in game
+        Quest[] QuestList = GameControl.createQuestList();
+        game.setQuest(QuestList);
         
         Satchel satchel = new Satchel();  //creat new satchel
         game.setSatchel(satchel);  //save satchel to game
@@ -101,6 +106,75 @@ public class GameControl {
         inventory[Item.artifact.ordinal()] = artifact;
         
         return inventory;
+    }
+    
+public static Quest[] getSortedQuestList() {
+        
+        //get quest list for the current game
+        Quest[] originalQuestList = 
+                Revenge.getCurrentGame().getQuest();
+        
+        //clone originalList
+        Quest[] questList = originalQuestList.clone();
+        
+        //using a BubbleSort to sort the list of inventoryList by name
+        Quest tempQuest;
+        for (int i = 0; i < questList.length-1; i++){
+            for (int j = 0; j < questList.length-1-i; j++) {
+                if (questList[j].getQuestType().
+                        compareToIgnoreCase(questList[j+1].getQuestType()) > 0) {
+                        tempQuest = questList[j];
+                        questList[j] = questList[j+1];
+                        questList[j+1] = tempQuest;
+            }
+        }
+    }
+    return questList;
+}    
+    
+    private static Quest[] createQuestList(){
+        
+        // create array(list) of Quests
+        Quest[] quest = new Quest[Constants.NUMBER_OF_QUESTS];
+        
+        Quest container = new Quest();
+        container.setQuestName("Storage Container Quest");
+        container.setQuestType("Storage Container Quest");
+        container.setQuestCounty("");
+        container.setAvailable("Storage Container Quest");
+        container.setComplete("Storage Container Quest");
+        
+        Quest artifact = new Quest();
+        artifact.setQuestName("Artifact Quest");
+        artifact.setQuestType("Artifact Quest");
+        artifact.setQuestCounty("");
+        artifact.setAvailable("Artifact Quest");
+        artifact.setComplete("Artifact Quest");
+
+        Quest shipment = new Quest();
+        shipment.setQuestName("Shipment Quest");
+        shipment.setQuestType("Shipment Quest");
+        shipment.setQuestCounty("");
+        shipment.setAvailable("Shipment Quest");
+        shipment.setComplete("Shipment Quest");
+        
+        Quest riddle = new Quest();
+        riddle.setQuestName("Riddle Quest");
+        riddle.setQuestType("Riddle Quest");
+        riddle.setQuestCounty("");
+        riddle.setAvailable("Riddle Quest");
+        riddle.setComplete("Riddle Quest");
+        
+        Quest strength = new Quest();
+        strength.setQuestName("Strength Quest");
+        strength.setQuestType("Strength Quest");
+        strength.setQuestCounty("");
+        strength.setAvailable("Strength Quest");
+        strength.setComplete("Strength Quest");
+        
+        return quest;
+
+  
     }
 
     public static void getSavedGame(String filePath) 
