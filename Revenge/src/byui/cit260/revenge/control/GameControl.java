@@ -105,24 +105,21 @@ public class GameControl {
 
     public static void getSavedGame(String filePath) 
                         throws GameControlException, IOException, ClassNotFoundException {
-        @SuppressWarnings("LocalVariableHidesMemberVariable")
         Game game = null;
         
-        try(@SuppressWarnings("LocalVariableHidesMemberVariable")
- FileInputStream fips = new FileInputStream(filepath)){
+        try(FileInputStream fips = new FileInputStream(filePath)){
             ObjectInputStream output = new ObjectInputStream(fips);
             
-            game = (Game) output.readObject();
-            
+            game = (Game) output.readObject();   
         }
         catch(FileNotFoundException fnfe) {
             throw new GameControlException(fnfe.getMessage());
-                }
+        }
         catch(Exception e) {
             throw new GameControlException(e.getMessage());    
-                }
-        Revenge.setCurrentGame(game);
         }
+        Revenge.setCurrentGame(game);
+    }
 
     public static void saveGame(Game currentGame, String filePath) 
         throws GameControlException {
