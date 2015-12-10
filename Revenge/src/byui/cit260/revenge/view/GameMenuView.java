@@ -141,10 +141,9 @@ public class GameMenuView extends View {
       //  }
         
    // }
-    private void printActorReport(ArrayList<Actor> Actor, 
-            String outputLocation) {
+    private void printActorReport(Actor[] Actor, String outputLocation) {
         
-        this.console.println("\nEnter the file path where the map is to be stored.");
+        this.console.println("\nEnter the file path where the report is to be stored.");
         String filePath = this.getInput();
         
         try (PrintWriter out = new PrintWriter(outputLocation)){
@@ -156,7 +155,7 @@ public class GameMenuView extends View {
             
             //print the description, and coordinate of each actor.
             for(Actor item : Actor) {
-                out.printf("%n%-20s%7d%13.2f", item.getDescription()
+                out.printf("%n%-20s%7d", item.getDescription()
                                                 , item.getCoordinates());
                 }
         } catch (IOException ex){
@@ -165,13 +164,9 @@ public class GameMenuView extends View {
     }
 
     private void printActorReport() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("This is created to resolve error.  Need to determine what "
+                                + "part of printActorReport() is causing error.");
     }
-
-   
-
-    
-
 
 }
 
