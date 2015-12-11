@@ -50,8 +50,8 @@ class MoveActorView extends View {
     }
  //need to add funtions to capture current location and decrease row count by 1
     private void moveNorth() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        actor.getCoordinates();
+        }
  //need to add funtions to capture current location and increase column count by 1
     private void moveEast() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
