@@ -9,6 +9,7 @@ import byui.cit260.revenge.model.Inventory;
 import byui.cit260.revenge.model.Item;
 import byui.cit260.revenge.model.Map;
 import byui.cit260.revenge.model.Player;
+import byui.cit260.revenge.model.Q;
 import byui.cit260.revenge.model.Quest;
 import byui.cit260.revenge.model.Satchel;
 import java.io.FileInputStream;
@@ -115,11 +116,13 @@ public class GameControl {
         Quest[] quest = new Quest[Constants.NUMBER_OF_QUESTS];
         
         Quest container = new Quest();
-        container.setQuestName("Storage Container Quest");
+        container.setQuestName("Storage Quest");
         container.setQuestType("Storage Container");
         container.setQuestCounty("");
         container.setAvailable(true);
         container.setComplete(false);
+        quest[Q.container.ordinal()] = container;
+
         
         Quest artifact = new Quest();
         artifact.setQuestName("Artifact Quest");
@@ -127,6 +130,8 @@ public class GameControl {
         artifact.setQuestCounty("");
         artifact.setAvailable(true);
         artifact.setComplete(false);
+        quest[Q.artifact.ordinal()] = artifact;
+
 
         Quest shipment = new Quest();
         shipment.setQuestName("Shipment Quest");
@@ -134,13 +139,16 @@ public class GameControl {
         shipment.setQuestCounty("");
         shipment.setAvailable(true);
         shipment.setComplete(false);
-        
+        quest[Q.shipment.ordinal()] = shipment;
+
         Quest riddle = new Quest();
         riddle.setQuestName("Riddle Quest");
         riddle.setQuestType("Riddle");
         riddle.setQuestCounty("");
         riddle.setAvailable(true);
         riddle.setComplete(false);
+        quest[Q.riddle.ordinal()] = riddle;
+
         
         Quest strength = new Quest();
         strength.setQuestName("Strength Quest");
@@ -148,6 +156,8 @@ public class GameControl {
         strength.setQuestCounty("");
         strength.setAvailable(true);
         strength.setComplete(false);
+        quest[Q.strength.ordinal()] = strength;
+
         
         return quest;
     }
