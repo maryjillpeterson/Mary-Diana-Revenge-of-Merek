@@ -10,13 +10,16 @@ import byui.cit260.revenge.exceptions.QuestControlException;
 
 /**
  *
- * @author chadepeterson
+ * @author Mary and Diana
  */
 public class QuestControl {
 
-
-    public double calculateVolume(double radius, double height) throws QuestControlException{
-       if (radius <= 12 && radius >= 24){
+    
+    public double calculateVolume(double width, double height) throws QuestControlException{
+        
+        double radius = width / 2;
+        
+        if (radius <= 12 && radius >= 24){
             throw new QuestControlException("Radius must be between 12 and 24.  Please try again.");
         }
         

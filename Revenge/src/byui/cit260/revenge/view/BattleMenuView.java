@@ -12,6 +12,7 @@ import java.util.Scanner;
  * @author Diana
  */
 public class BattleMenuView extends View {
+
     
      public BattleMenuView(){
         super("\n------------------------------------------------------"

@@ -29,7 +29,7 @@ public class MainMenuView extends View {
             +"\n  Main Menu                              "
             +"\n-----------------------------------------"
             +"\nS - Start New Game"
-            +"\nG - Continue Existing Game"
+            +"\nC - Continue Existing Game"
             +"\nH - Get Help on How to Play the Game"
             +"\nE - Exit"
             +"\n-----------------------------------------");
@@ -52,8 +52,8 @@ public class MainMenuView extends View {
             }
         }
                 break;
-            case 'G': //continue previous game
-            case 'g':
+            case 'C': //continue previous game
+            case 'c':
                 this.continueGame();
                 break;
             case 'H': //display the help menu

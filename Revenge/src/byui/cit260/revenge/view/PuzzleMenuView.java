@@ -52,10 +52,12 @@ public class PuzzleMenuView extends View {
             + "\nshould be and they need your wisdom."); 
     }
        
-    public Double getRadius(){
-        Double radius = null;
+    public Double getWidth(){
+        Double width = null;
         
-        while (radius == null){
+        this.console.println("How wide should the barrel be? Input a number.");
+        
+        while (width == null){
             String value = this.getInput();
             value = value.trim().toUpperCase();
 
@@ -63,17 +65,19 @@ public class PuzzleMenuView extends View {
                 break;
             
         try {    
-            radius = Double.parseDouble(value);
+            width = Double.parseDouble(value);
         } catch (NumberFormatException nfe) {
             this.console.println("\nYou must enter a valid number."
                     + "Try again or enter Q to quit.");
         }
         }
-        return radius;
+        return width;
     }
     
     public Double getHeight(){
         Double height = null;
+        
+        this.console.println("How tall should the barrel be? Input a number.");
         
         while (height == null){
             String value = this.getInput();
