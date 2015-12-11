@@ -87,9 +87,8 @@ public class GameControl {
     
     public static Inventory[] getSortedInventoryList() {
         
-        //get inventory list for the current game
-        Inventory[] originalInventoryList = 
-                Revenge.getCurrentGame().getInventory();
+        Inventory[] originalInventoryList;
+        originalInventoryList = Revenge.getCurrentGame().getInventory();
         
         //clone originalList
         Inventory[] inventoryList = originalInventoryList.clone();
@@ -164,9 +163,8 @@ public class GameControl {
 
     public static Quest[] getSortedQuestList() {
         
-        //get quest list for the current game
-        Quest[] originalQuestList = 
-                Revenge.getCurrentGame().getQuest();
+        Quest[] originalQuestList;
+        originalQuestList = Revenge.getCurrentGame().getQuest();
         
         //clone originalList
         Quest[] questList = originalQuestList.clone();
@@ -216,7 +214,6 @@ public class GameControl {
         catch(IOException e) {
             throw new GameControlException(e.getMessage());
         }
-    
     }
 }
 

@@ -50,7 +50,7 @@ class MoveActorView extends View {
     }
  //need to add funtions to capture current location and decrease row count by 1
     private void moveNorth() {
-        actor.getCoordinates();
+        
         }
  //need to add funtions to capture current location and increase column count by 1
     private void moveEast() {

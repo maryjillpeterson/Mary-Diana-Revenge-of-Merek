@@ -91,7 +91,7 @@ public class MainMenuView extends View {
          //call function to recall saved game
         // prompt for and get the name of the file to save the game in
         System.out.println("\n\nEnter the file path for file where the game "
-        + "is to be saved.");
+        + "was saved.");
         
         String filePath = this.getInput();
         

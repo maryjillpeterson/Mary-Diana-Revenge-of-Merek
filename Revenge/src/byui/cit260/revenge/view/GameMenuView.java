@@ -121,9 +121,12 @@ public class GameMenuView extends View {
         try {
         //save the game to the specified file
         GameControl.saveGame(Revenge.getCurrentGame(),filePath);
+        
+        this.console.println("Your game has been successfully saved");
+        
         } catch (Exception ex){
             ErrorView.display("GameMenuView", ex.getMessage());
-        }
+        }   
     }
 
     private void viewHelpMenu() {

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package byui.cit260.revenge.model;
+package byui.cit260.revenge.view;
 
 import byui.cit260.revenge.view.ErrorView;
 import byui.cit260.revenge.view.View;
