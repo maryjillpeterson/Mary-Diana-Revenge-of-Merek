@@ -8,7 +8,11 @@ package byui.cit260.revenge.view;
 
 import byui.cit260.revenge.control.GameControl;
 import byui.cit260.revenge.model.Actor;
+import byui.cit260.revenge.model.Game;
 import byui.cit260.revenge.model.Inventory;
+import byui.cit260.revenge.model.Location;
+import byui.cit260.revenge.model.Map;
+import byui.cit260.revenge.model.Quest;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -87,7 +91,21 @@ public class GameMenuView extends View {
     }
 
     private void viewQuests() {
-            System.out.println("Need to build array Quests similar to Inventoy");
+            //get sorted list of available quests.
+        Quest[] quest = GameControl.getSortedQuestList();
+        
+        this.console.println("\nList of Quests that are Available");
+        this.console.println("Description" + "\t" + "On Hand");
+        
+        //for each quest
+        for(Quest questItem : quest) {
+            this.console.println(questItem.getQuestName() + "\t        " +
+                        questItem.getQuestType() + "\t     " + 
+                        questItem.getQuestCounty() + "\t      " +
+                        questItem.isAvailable() + "\t       " +
+                        questItem.isComplete() + "\t       "
+            );
+        }
     }
 
     private void move() {
@@ -115,33 +133,35 @@ public class GameMenuView extends View {
     }
 
     private void displayMap() {
-       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }  
-       // Location[] [] locations = Map.getLocations();
+        System.out.println("this is for the map function");
+    }
+        //Game locations = Revenge.getCurrentGame();
         
    
         //System.out.println("\n\n====================================================");
         //System.out.println("\t MAP OF AFENARA");
         //System.out.println("====================================================");
-        //System.out.println("Column" + "\t" +
+        //System.out.println("1" + "\t" + "2" + "\t" + "3" + "\t" + "4" + "\t" + "5" + "\t" + "6" 
+        //                    + "\t" + "7" + "\t" + "8" + "\t" + "9" + "\t" + "10");
                 
-        //for(Location locationColumn : locations) {
-            //System.out.println(locationColumn.getColumn());
-          //  for (int i = 0; i < location.length; i++) { 
+        //for(Game locations : locations) {
+          //  System.out.println(locationColumn.getColumn());
+           // for (int i = 0; i < location.length; i++) { 
             //    for (int j = 0; j < location[i].length; j++) { 
-              //      location[i][j] = i + j;
-              //  }
-          //  }
+            //        location[i][j] = i + j;
+             //   }
+            //}
                 
-           // for (int[] a : location) { for (int i : a) { 
-           //     System.out.print(i + "\t");
-           //     System.out.println("\n"); 
-          //  }
+            //for (int[] a : location) { for (int i : a) { 
+            //    System.out.print(i + "\t");
+            //    System.out.println("\n"); 
+           // }
 
-      //  }
+       // }
         
    // }
-    private void printActorReport(Actor[] Actor, String outputLocation) {
+        
+    private void printActorReport(Actor[] actor, String outputLocation) {
         
         this.console.println("\nEnter the file path where the report is to be stored.");
         String filePath = this.getInput();
@@ -154,9 +174,9 @@ public class GameMenuView extends View {
             out.printf("%n%-20s%10s%10s", "-----------------", "----------------", "-----------------");
             
             //print the description, and coordinate of each actor.
-            for(Actor item : Actor) {
-                out.printf("%n%-20s%7d", item.getDescription()
-                                                , item.getCoordinates());
+            for(Actor actors : actor) {
+                out.printf("%n%-20s%7d", actors.getDescription()
+                                       , actors.getCoordinates());
                 }
         } catch (IOException ex){
             System.out.println("I/O Error: " + ex.getMessage());
@@ -169,4 +189,3 @@ public class GameMenuView extends View {
     }
 
 }
-

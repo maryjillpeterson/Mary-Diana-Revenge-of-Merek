@@ -66,6 +66,14 @@ public class Map implements Serializable{
         this.columnCount = (int) columnCount;
     }
 
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
+    
     @Override
     public String toString() {
         return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + '}';
@@ -97,9 +105,6 @@ public class Map implements Serializable{
         return true;
     }
 
-    public Location[][] getLocations() {
-        return locations;
-    }
 
     
 }

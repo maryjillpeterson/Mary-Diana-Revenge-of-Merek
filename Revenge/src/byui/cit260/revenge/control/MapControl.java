@@ -23,7 +23,7 @@ import revenge.Revenge;
 
 /**
  *
- * @author chadepeterson
+ * @author chadepeterson and Diana
  */
 public class MapControl {
     private static String filepath;
@@ -76,14 +76,14 @@ public class MapControl {
         
         RegularScene[] scenes = new RegularScene[SceneType.values().length];
         
-        RegularScene startingScene = new RegularScene() {};
+        RegularScene startingScene = new RegularScene();
         startingScene.setDescription(
                 "\n Welcome to the great land of Afenara.");
         startingScene.setMapSymbol(" ST ");
         startingScene.setBlocked(false);
         scenes[SceneType.start.ordinal()] = startingScene;
         
-        RegularScene forestScene = new RegularScene() {};
+        RegularScene forestScene = new RegularScene();
         forestScene.setDescription(
                 "\n You are in a ancient and dark forest."
                +"\n These woods look dangerous.");
@@ -91,42 +91,42 @@ public class MapControl {
         forestScene.setBlocked(false);
         scenes[SceneType.forest.ordinal()] = forestScene;
         
-        RegularScene mountainScene = new RegularScene() {};
+        RegularScene mountainScene = new RegularScene();
         mountainScene.setDescription(
                 "\n The land has become rugged.  In the distance you see a large mountian range.");
         mountainScene.setMapSymbol("^^^^");
         mountainScene.setBlocked(false);
         scenes[SceneType.mountain.ordinal()] = mountainScene;
         
-        RegularScene lordScene = new RegularScene() {};
+        RegularScene lordScene = new RegularScene();
         lordScene.setDescription(
                 "\n You have come to the house of the Lord of the County.");
         lordScene.setMapSymbol(" L ");
         lordScene.setBlocked(false);
         scenes[SceneType.lord.ordinal()] = lordScene;
         
-        RegularScene villageScene = new RegularScene() {};
+        RegularScene villageScene = new RegularScene();
         villageScene.setDescription(
                 "\n You have entered a village.");
         villageScene.setMapSymbol(" V ");
         villageScene.setBlocked(false);
         scenes[SceneType.village.ordinal()] = villageScene;
         
-        RegularScene lakeScene = new RegularScene() {};
+        RegularScene lakeScene = new RegularScene();
         lakeScene.setDescription(
                 "\n This is a big lake.");
         lakeScene.setMapSymbol(" ~~ ");
         lakeScene.setBlocked(false);
         scenes[SceneType.lake.ordinal()] = lakeScene;
         
-        RegularScene fieldScene = new RegularScene() {};
+        RegularScene fieldScene = new RegularScene();
         fieldScene.setDescription(
                 "\n You are crossing a field.");
         fieldScene.setMapSymbol(" - ");
         fieldScene.setBlocked(false);
         scenes[SceneType.field.ordinal()] = fieldScene;
         
-        RegularScene plainLakeScene = new RegularScene() {};
+        RegularScene plainLakeScene = new RegularScene();
         plainLakeScene.setDescription(
                 "\n You are travling through fields and farms."
                +"\n You see a large Lake in the distance.");
@@ -134,7 +134,7 @@ public class MapControl {
         plainLakeScene.setBlocked(false);
         scenes[SceneType.plainLake.ordinal()] = plainLakeScene;
         
-        RegularScene boatDockScene = new RegularScene() {};
+        RegularScene boatDockScene = new RegularScene();
         boatDockScene.setDescription(
                 "\n You are travling through fields and farms."
                +"\n You see a large Lake in the distance."
@@ -143,7 +143,7 @@ public class MapControl {
         boatDockScene.setBlocked(false);
         scenes[SceneType.boatDock.ordinal()] = boatDockScene;
         
-        RegularScene shoreScene = new RegularScene() {};
+        RegularScene shoreScene = new RegularScene();
         shoreScene.setDescription(
                 "\n You are travling through fields and farms."
                +"\n You see a large Lake in the distance."
@@ -152,7 +152,7 @@ public class MapControl {
         shoreScene.setBlocked(false);
         scenes[SceneType.shore.ordinal()] = shoreScene;
         
-        RegularScene riverScene = new RegularScene() {};
+        RegularScene riverScene = new RegularScene();
         riverScene.setDescription(
                 "\n You are travling through fields and farms."
                +"\n There is a large river here.");

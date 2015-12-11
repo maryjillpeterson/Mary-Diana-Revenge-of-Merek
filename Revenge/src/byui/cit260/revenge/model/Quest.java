@@ -11,15 +11,15 @@ import java.util.Objects;
 
 /**
  *
- * @author chadepeterson
+ * @author Diana and Mary
  */
 public class Quest implements Serializable{
     
     private String questName;
     private String questType;
     private String questCounty;
-    private String available;
-    private String complete;
+    private boolean available;
+    private boolean complete;
 
     public Quest() {
     }
@@ -50,21 +50,22 @@ public class Quest implements Serializable{
         this.questCounty = questCounty;
     }
 
-    public String getAvailable() {
+    public boolean isAvailable() {
         return available;
     }
 
-    public void setAvailable(String available) {
+    public void setAvailable(boolean available) {
         this.available = available;
     }
 
-    public String getComplete() {
+    public boolean isComplete() {
         return complete;
     }
 
-    public void setComplete(String complete) {
+    public void setComplete(boolean complete) {
         this.complete = complete;
     }
+
 
     @Override
     public int hashCode() {

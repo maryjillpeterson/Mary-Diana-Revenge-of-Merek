@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author Diana
+ * @author Diana and Mary
  */
 public class Game implements Serializable{
     
@@ -21,6 +21,7 @@ public class Game implements Serializable{
     private String[] actor;
     private Map map;
     private Satchel satchel;
+    private Quest[] quest;
     
     
 
@@ -74,6 +75,14 @@ public class Game implements Serializable{
     public void setSatchel(Satchel satchel) {
         this.satchel = satchel;
     }
+    
+    public Quest[] getQuest() {
+        return quest;
+    }
+
+    public void setQuest(Quest[] quest) {
+        this.quest = quest;
+    }
 
     
     @Override
@@ -105,3 +114,4 @@ public class Game implements Serializable{
 
 
 }
+

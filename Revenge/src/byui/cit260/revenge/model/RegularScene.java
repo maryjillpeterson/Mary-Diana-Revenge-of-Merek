@@ -30,6 +30,21 @@ public class RegularScene implements Serializable{
         this.description = description;
     }
 
+    public String getMapSymbol() {
+        return mapSymbol;
+    }
+
+    public void setMapSymbol(String _st_) {
+        this.mapSymbol = mapSymbol;
+    }
+    
+    public Boolean getBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean b) {
+        this.blocked = blocked;
+    }
     @Override
     public String toString() {
         return "RegularScene{" + "description=" + description + '}';
@@ -57,12 +72,5 @@ public class RegularScene implements Serializable{
         return true;
     }
 
-    public void setMapSymbol(String _st_) {
-        this.mapSymbol = mapSymbol;
-    }
-
-    public void setBlocked(boolean b) {
-        this.blocked = blocked;
-    }
     
 }

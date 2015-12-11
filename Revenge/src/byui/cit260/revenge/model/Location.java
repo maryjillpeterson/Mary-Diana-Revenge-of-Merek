@@ -7,7 +7,6 @@
 package byui.cit260.revenge.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -20,12 +19,10 @@ public class Location implements Serializable{
     private int column;
     private boolean visited;
     private RegularScene scene;
-    private ArrayList<Actor> actors;
+    private Actor actors;
 
     public Location() {
     }
-    
-    
 
     public int getRow() {
         return row;
@@ -43,6 +40,31 @@ public class Location implements Serializable{
         this.column = column;
     }
 
+    public boolean isVisited() {
+        return visited;
+    }
+
+    void setVisited(boolean b) {
+        this.visited = visited;
+    }
+
+    public RegularScene getScene() {
+        return scene;
+    }
+    
+    public void setScene(RegularScene scene) {
+        this.scene = scene;
+        
+    }
+
+    public Actor getActors() {
+        return actors;
+    }
+
+    public void setActors(Actor actors) {
+        this.actors = actors;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -55,7 +77,6 @@ public class Location implements Serializable{
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + '}';
     }
-    
     
 
     @Override
@@ -76,14 +97,7 @@ public class Location implements Serializable{
         return true;
     }
 
-    void setVisited(boolean b) {
-        this.visited = visited;
-    }
-
-    public void setScene(RegularScene scene) {
-        this.scene = scene;
-        
-    }
+    
     
     
 }

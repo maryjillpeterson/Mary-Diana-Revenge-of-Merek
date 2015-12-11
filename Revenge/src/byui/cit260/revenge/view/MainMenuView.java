@@ -52,13 +52,13 @@ public class MainMenuView extends View {
             }
         }
                 break;
-            case 'H': //display the help menu
-            case 'h':
-                this.displayHelpMenu();
-                break;
             case 'G': //continue previous game
             case 'g':
                 this.continueGame();
+                break;
+            case 'H': //display the help menu
+            case 'h':
+                this.displayHelpMenu();
                 break;
             case 'E': //exit the program
             case 'e':
@@ -88,7 +88,7 @@ public class MainMenuView extends View {
     }
 
     private void continueGame() {
-         //call function to recall savd game
+         //call function to recall saved game
         // prompt for and get the name of the file to save the game in
         System.out.println("\n\nEnter the file path for file where the game "
         + "is to be saved.");
@@ -107,8 +107,8 @@ public class MainMenuView extends View {
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
         
-        LoadSavedGameView loadSavedGameView = new LoadSavedGameView();
-        loadSavedGameView.LoadSavedGame();
+        //LoadSavedGameView loadSavedGameView = new LoadSavedGameView();
+        //loadSavedGameView.LoadSavedGame();
     }
 
 

@@ -9,6 +9,7 @@ import byui.cit260.revenge.model.Inventory;
 import byui.cit260.revenge.model.Item;
 import byui.cit260.revenge.model.Map;
 import byui.cit260.revenge.model.Player;
+import byui.cit260.revenge.model.Quest;
 import byui.cit260.revenge.model.Satchel;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -38,6 +39,10 @@ public class GameControl {
         Inventory[] inventoryList = GameControl.createInventoryList();
         game.setInventory(inventoryList);
         
+        //create Quest list and save in game
+        Quest[] QuestList = GameControl.createQuestList();
+        game.setQuest(QuestList);
+        
         Satchel satchel = new Satchel();  //creat new satchel
         game.setSatchel(satchel);  //save satchel to game
         
@@ -52,30 +57,6 @@ public class GameControl {
         Player player = Revenge.getPlayer();
         return player;
     }
-
-    public static Inventory[] getSortedInventoryList() {
-        
-        //get inventory list for the current game
-        Inventory[] originalInventoryList = 
-                Revenge.getCurrentGame().getInventory();
-        
-        //clone originalList
-        Inventory[] inventoryList = originalInventoryList.clone();
-        
-        //using a BubbleSort to sort the list of inventoryList by name
-        Inventory tempInventory;
-        for (int i = 0; i < inventoryList.length-1; i++){
-            for (int j = 0; j < inventoryList.length-1-i; j++) {
-                if (inventoryList[j].getItemDescription().
-                        compareToIgnoreCase(inventoryList[j+1].getItemDescription()) > 0) {
-                        tempInventory = inventoryList[j];
-                        inventoryList[j] = inventoryList[j+1];
-                        inventoryList[j+1] = tempInventory;
-            }
-        }
-    }
-    return inventoryList;
-}
 
     private static Inventory[] createInventoryList() {
         
@@ -102,7 +83,100 @@ public class GameControl {
         
         return inventory;
     }
+    
+    public static Inventory[] getSortedInventoryList() {
+        
+        //get inventory list for the current game
+        Inventory[] originalInventoryList = 
+                Revenge.getCurrentGame().getInventory();
+        
+        //clone originalList
+        Inventory[] inventoryList = originalInventoryList.clone();
+        
+        //using a BubbleSort to sort the list of inventoryList by name
+        Inventory tempInventory;
+        for (int i = 0; i < inventoryList.length-1; i++){
+            for (int j = 0; j < inventoryList.length-1-i; j++) {
+                if (inventoryList[j].getItemDescription().
+                        compareToIgnoreCase(inventoryList[j+1].getItemDescription()) > 0) {
+                        tempInventory = inventoryList[j];
+                        inventoryList[j] = inventoryList[j+1];
+                        inventoryList[j+1] = tempInventory;
+            }
+        }
+    }
+    return inventoryList;
+}
 
+    
+    private static Quest[] createQuestList(){
+        
+        // create array(list) of Quests
+        Quest[] quest = new Quest[Constants.NUMBER_OF_QUESTS];
+        
+        Quest container = new Quest();
+        container.setQuestName("Storage Container Quest");
+        container.setQuestType("Storage Container");
+        container.setQuestCounty("");
+        container.setAvailable(true);
+        container.setComplete(false);
+        
+        Quest artifact = new Quest();
+        artifact.setQuestName("Artifact Quest");
+        artifact.setQuestType("Artifact");
+        artifact.setQuestCounty("");
+        artifact.setAvailable(true);
+        artifact.setComplete(false);
+
+        Quest shipment = new Quest();
+        shipment.setQuestName("Shipment Quest");
+        shipment.setQuestType("Shipment");
+        shipment.setQuestCounty("");
+        shipment.setAvailable(true);
+        shipment.setComplete(false);
+        
+        Quest riddle = new Quest();
+        riddle.setQuestName("Riddle Quest");
+        riddle.setQuestType("Riddle");
+        riddle.setQuestCounty("");
+        riddle.setAvailable(true);
+        riddle.setComplete(false);
+        
+        Quest strength = new Quest();
+        strength.setQuestName("Strength Quest");
+        strength.setQuestType("Strength");
+        strength.setQuestCounty("");
+        strength.setAvailable(true);
+        strength.setComplete(false);
+        
+        return quest;
+    }
+
+    public static Quest[] getSortedQuestList() {
+        
+        //get quest list for the current game
+        Quest[] originalQuestList = 
+                Revenge.getCurrentGame().getQuest();
+        
+        //clone originalList
+        Quest[] questList = originalQuestList.clone();
+        
+        //using a BubbleSort to sort the list of inventoryList by name
+        Quest tempQuest;
+        for (int i = 0; i < questList.length-1; i++){
+            for (int j = 0; j < questList.length-1-i; j++) {
+                if (questList[j].getQuestType().
+                        compareToIgnoreCase(questList[j+1].getQuestType()) > 0) {
+                        tempQuest = questList[j];
+                        questList[j] = questList[j+1];
+                        questList[j+1] = tempQuest;
+            }
+        }
+    }
+    return questList;
+} 
+    
+    
     public static void getSavedGame(String filePath) 
                         throws GameControlException, IOException, ClassNotFoundException {
         Game game = null;
