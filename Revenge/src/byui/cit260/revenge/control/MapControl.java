@@ -11,6 +11,8 @@ import byui.cit260.revenge.model.Actor;
 import byui.cit260.revenge.model.Game;
 import byui.cit260.revenge.model.Location;
 import byui.cit260.revenge.model.Map;
+import byui.cit260.revenge.model.Q;
+import byui.cit260.revenge.model.QuestScene;
 import byui.cit260.revenge.model.RegularScene;
 import byui.cit260.revenge.model.SceneType;
 import java.awt.Point;
@@ -31,7 +33,7 @@ public class MapControl {
 
     static Map createMap() {
         //create the map
-        Map map = new Map(8,11);
+        Map map = new Map(8,10);
         
         //create a list of the different scenes in the game
         RegularScene[] scenes = createScenes();
@@ -98,12 +100,19 @@ public class MapControl {
         mountainScene.setBlocked(false);
         scenes[SceneType.mountain.ordinal()] = mountainScene;
         
-        RegularScene lordScene = new RegularScene();
+        /*RegularScene lordScene = new RegularScene();
         lordScene.setDescription(
                 "\n You have come to the house of the Lord of the County.");
         lordScene.setMapSymbol(" L ");
         lordScene.setBlocked(false);
-        scenes[SceneType.lord.ordinal()] = lordScene;
+        scenes[SceneType.lord.ordinal()] = lordScene;*/
+        
+        RegularScene battleScene = new RegularScene();
+        battleScene.setDescription(
+                "\n You have entered an area. This must be where the jousts and fights are held.");
+        battleScene.setMapSymbol(" A ");
+        battleScene.setBlocked(false);
+        scenes[SceneType.battle.ordinal()] = battleScene;
         
         RegularScene villageScene = new RegularScene();
         villageScene.setDescription(
@@ -112,36 +121,20 @@ public class MapControl {
         villageScene.setBlocked(false);
         scenes[SceneType.village.ordinal()] = villageScene;
         
-        RegularScene lakeScene = new RegularScene();
-        lakeScene.setDescription(
-                "\n This is a big lake.");
-        lakeScene.setMapSymbol(" ~~ ");
-        lakeScene.setBlocked(false);
-        scenes[SceneType.lake.ordinal()] = lakeScene;
+        RegularScene bogScene = new RegularScene();
+        bogScene.setDescription(
+                "\n You are travelling through a bog.  Th ground is soft and there "
+                +"\nare swamps all around.  The air is think an foggy.");
+        bogScene.setMapSymbol(" ,, ");
+        bogScene.setBlocked(false);
+        scenes[SceneType.bog.ordinal()] = bogScene;
         
         RegularScene fieldScene = new RegularScene();
         fieldScene.setDescription(
-                "\n You are crossing a field.");
-        fieldScene.setMapSymbol(" - ");
+                "\n You are travling through fields and farms.");
+        fieldScene.setMapSymbol(" ;; ");
         fieldScene.setBlocked(false);
         scenes[SceneType.field.ordinal()] = fieldScene;
-        
-        RegularScene plainLakeScene = new RegularScene();
-        plainLakeScene.setDescription(
-                "\n You are travling through fields and farms."
-               +"\n You see a large Lake in the distance.");
-        plainLakeScene.setMapSymbol(" -~ ");
-        plainLakeScene.setBlocked(false);
-        scenes[SceneType.plainLake.ordinal()] = plainLakeScene;
-        
-        RegularScene boatDockScene = new RegularScene();
-        boatDockScene.setDescription(
-                "\n You are travling through fields and farms."
-               +"\n You see a large Lake in the distance."
-               +"\n At the edge of the lake, there a boat dock with a small row boat.");
-        boatDockScene.setMapSymbol(" b~ ");
-        boatDockScene.setBlocked(false);
-        scenes[SceneType.boatDock.ordinal()] = boatDockScene;
         
         RegularScene shoreScene = new RegularScene();
         shoreScene.setDescription(
@@ -176,95 +169,91 @@ public class MapControl {
         locations[0][1].setScene(scenes[SceneType.mountain.ordinal()]);
         locations[0][2].setScene(scenes[SceneType.mountain.ordinal()]);
         locations[0][3].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[0][4].setScene(scenes[SceneType.field.ordinal()]);
+        locations[0][4].setScene(scenes[SceneType.forest.ordinal()]);
         locations[0][5].setScene(scenes[SceneType.forest.ordinal()]);
         locations[0][6].setScene(scenes[SceneType.forest.ordinal()]);
         locations[0][7].setScene(scenes[SceneType.forest.ordinal()]);
-        locations[0][8].setScene(scenes[SceneType.field.ordinal()]);
+        locations[0][8].setScene(scenes[SceneType.forest.ordinal()]);
         locations[0][9].setScene(scenes[SceneType.shore.ordinal()]);
         
-        locations[1][0].setScene(scenes[SceneType.river.ordinal()]);
+        locations[1][0].setScene(scenes[SceneType.mountain.ordinal()]);
         locations[1][1].setScene(scenes[SceneType.forest.ordinal()]);
-        locations[1][2].setScene(scenes[SceneType.village.ordinal()]);
-        locations[1][3].setScene(scenes[SceneType.lord.ordinal()]);
-        locations[1][4].setScene(scenes[SceneType.boatDock.ordinal()]);
-        locations[1][5].setScene(scenes[SceneType.lake.ordinal()]);
-        locations[1][6].setScene(scenes[SceneType.lake.ordinal()]);
-        locations[1][7].setScene(scenes[SceneType.lake.ordinal()]);
-        locations[1][8].setScene(scenes[SceneType.plainLake.ordinal()]);
-        locations[1][9].setScene(scenes[SceneType.village.ordinal()]);
-        locations[1][10].setScene(scenes[SceneType.shore.ordinal()]);
+        locations[1][2].setScene(scenes[SceneType.forest.ordinal()]);
+        locations[1][3].setScene(scenes[SceneType.field.ordinal()]);
+        locations[1][4].setScene(scenes[SceneType.field.ordinal()]);
+        locations[1][5].setScene(scenes[SceneType.forest.ordinal()]);
+        locations[1][6].setScene(scenes[SceneType.bog.ordinal()]);
+        locations[1][7].setScene(scenes[SceneType.bog.ordinal()]);
+        locations[1][8].setScene(scenes[SceneType.bog.ordinal()]);
+        locations[1][9].setScene(scenes[SceneType.shore.ordinal()]);
         
         locations[2][0].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[2][1].setScene(scenes[SceneType.river.ordinal()]);
+        locations[2][1].setScene(scenes[SceneType.forest.ordinal()]);
         locations[2][2].setScene(scenes[SceneType.field.ordinal()]);
         locations[2][3].setScene(scenes[SceneType.field.ordinal()]);
-        locations[2][4].setScene(scenes[SceneType.forest.ordinal()]);
-        locations[2][5].setScene(scenes[SceneType.forest.ordinal()]);
-        locations[2][6].setScene(scenes[SceneType.forest.ordinal()]);
-        locations[2][7].setScene(scenes[SceneType.field.ordinal()]);
-        locations[2][8].setScene(scenes[SceneType.field.ordinal()]);
-        locations[2][9].setScene(scenes[SceneType.lord.ordinal()]);
-        locations[2][10].setScene(scenes[SceneType.shore.ordinal()]);
+        locations[2][4].setScene(scenes[SceneType.field.ordinal()]);
+        locations[2][5].setScene(scenes[SceneType.field.ordinal()]);
+        locations[2][6].setScene(scenes[SceneType.bog.ordinal()]);
+        locations[2][7].setScene(scenes[SceneType.bog.ordinal()]);
+        locations[2][8].setScene(scenes[SceneType.bog.ordinal()]);
+        locations[2][9].setScene(scenes[SceneType.shore.ordinal()]);
         
         locations[3][0].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[3][1].setScene(scenes[SceneType.river.ordinal()]);
-        locations[3][2].setScene(scenes[SceneType.river.ordinal()]);
-        locations[3][3].setScene(scenes[SceneType.village.ordinal()]);
-        locations[3][4].setScene(scenes[SceneType.lord.ordinal()]);
-        locations[3][5].setScene(scenes[SceneType.field.ordinal()]);
-        locations[3][6].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[3][7].setScene(scenes[SceneType.start.ordinal()]);
-        locations[3][8].setScene(scenes[SceneType.finish.ordinal()]);
-        locations[3][9].setScene(scenes[SceneType.field.ordinal()]);
-        locations[3][10].setScene(scenes[SceneType.shore.ordinal()]);
+        locations[3][1].setScene(scenes[SceneType.forest.ordinal()]);
+        locations[3][2].setScene(scenes[SceneType.field.ordinal()]);
+        locations[3][3].setScene(scenes[SceneType.field.ordinal()]);
+        locations[3][4].setScene(scenes[SceneType.start.ordinal()]);
+        locations[3][5].setScene(scenes[SceneType.finish.ordinal()]);
+        locations[3][6].setScene(scenes[SceneType.field.ordinal()]);
+        locations[3][7].setScene(scenes[SceneType.field.ordinal()]);
+        locations[3][8].setScene(scenes[SceneType.field.ordinal()]);
+        locations[3][9].setScene(scenes[SceneType.shore.ordinal()]);
         
-        locations[4][0].setScene(scenes[SceneType.field.ordinal()]);
-        locations[4][1].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[4][2].setScene(scenes[SceneType.field.ordinal()]);
-        locations[4][3].setScene(scenes[SceneType.village.ordinal()]);
-        locations[4][4].setScene(scenes[SceneType.river.ordinal()]);
-        locations[4][5].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[4][6].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[4][7].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[4][8].setScene(scenes[SceneType.field.ordinal()]);
-        locations[4][9].setScene(scenes[SceneType.field.ordinal()]);
-        locations[4][10].setScene(scenes[SceneType.shore.ordinal()]);
+        locations[4][0].setScene(scenes[SceneType.mountain.ordinal()]);
+        locations[4][1].setScene(scenes[SceneType.village.ordinal()]);
+        locations[4][2].setScene(scenes[SceneType.village.ordinal()]);
+        locations[4][3].setScene(scenes[SceneType.field.ordinal()]);
+        locations[4][4].setScene(scenes[SceneType.battle.ordinal()]);
+        locations[4][5].setScene(scenes[SceneType.field.ordinal()]);
+        locations[4][6].setScene(scenes[SceneType.field.ordinal()]);
+        locations[4][7].setScene(scenes[SceneType.field.ordinal()]);
+        locations[4][8].setScene(scenes[SceneType.village.ordinal()]);
+        locations[4][9].setScene(scenes[SceneType.shore.ordinal()]);
         
-        locations[5][0].setScene(scenes[SceneType.field.ordinal()]);
-        locations[5][1].setScene(scenes[SceneType.field.ordinal()]);
-        locations[5][2].setScene(scenes[SceneType.mountain.ordinal()]);
+        locations[5][0].setScene(scenes[SceneType.mountain.ordinal()]);
+        locations[5][1].setScene(scenes[SceneType.village.ordinal()]);
+        locations[5][2].setScene(scenes[SceneType.village.ordinal()]);
         locations[5][3].setScene(scenes[SceneType.field.ordinal()]);
-        locations[5][4].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[5][5].setScene(scenes[SceneType.river.ordinal()]);
+        locations[5][4].setScene(scenes[SceneType.field.ordinal()]);
+        locations[5][5].setScene(scenes[SceneType.field.ordinal()]);
         locations[5][6].setScene(scenes[SceneType.field.ordinal()]);
-        locations[5][7].setScene(scenes[SceneType.field.ordinal()]);
-        locations[5][8].setScene(scenes[SceneType.field.ordinal()]);
-        locations[5][9].setScene(scenes[SceneType.field.ordinal()]);
-        locations[5][10].setScene(scenes[SceneType.shore.ordinal()]);
+        locations[5][7].setScene(scenes[SceneType.village.ordinal()]);
+        locations[5][8].setScene(scenes[SceneType.village.ordinal()]);
+        locations[5][9].setScene(scenes[SceneType.shore.ordinal()]);
         
-        locations[6][0].setScene(scenes[SceneType.field.ordinal()]);
-        locations[6][1].setScene(scenes[SceneType.field.ordinal()]);
-        locations[6][2].setScene(scenes[SceneType.lord.ordinal()]);
-        locations[6][3].setScene(scenes[SceneType.village.ordinal()]);
-        locations[6][4].setScene(scenes[SceneType.mountain.ordinal()]);
-        locations[6][5].setScene(scenes[SceneType.river.ordinal()]);
-        locations[6][6].setScene(scenes[SceneType.river.ordinal()]);
+        locations[6][0].setScene(scenes[SceneType.mountain.ordinal()]);
+        locations[6][1].setScene(scenes[SceneType.village.ordinal()]);
+        locations[6][2].setScene(scenes[SceneType.village.ordinal()]);
+        locations[6][3].setScene(scenes[SceneType.field.ordinal()]);
+        locations[6][4].setScene(scenes[SceneType.field.ordinal()]);
+        locations[6][5].setScene(scenes[SceneType.field.ordinal()]);
+        locations[6][6].setScene(scenes[SceneType.field.ordinal()]);
         locations[6][7].setScene(scenes[SceneType.village.ordinal()]);
-        locations[6][8].setScene(scenes[SceneType.lord.ordinal()]);
+        locations[6][8].setScene(scenes[SceneType.village.ordinal()]);
         locations[6][9].setScene(scenes[SceneType.shore.ordinal()]);
         
-        locations[7][0].setScene(scenes[SceneType.field.ordinal()]);
-        locations[7][1].setScene(scenes[SceneType.field.ordinal()]);
-        locations[7][2].setScene(scenes[SceneType.village.ordinal()]);
-        locations[7][3].setScene(scenes[SceneType.village.ordinal()]);
-        locations[7][4].setScene(scenes[SceneType.field.ordinal()]);
-        locations[7][5].setScene(scenes[SceneType.field.ordinal()]);
-        locations[7][6].setScene(scenes[SceneType.field.ordinal()]);
-        locations[7][7].setScene(scenes[SceneType.village.ordinal()]);
-        locations[7][8].setScene(scenes[SceneType.village.ordinal()]);
+        locations[7][0].setScene(scenes[SceneType.mountain.ordinal()]);
+        locations[7][1].setScene(scenes[SceneType.river.ordinal()]);
+        locations[7][2].setScene(scenes[SceneType.river.ordinal()]);
+        locations[7][3].setScene(scenes[SceneType.river.ordinal()]);
+        locations[7][4].setScene(scenes[SceneType.river.ordinal()]);
+        locations[7][5].setScene(scenes[SceneType.river.ordinal()]);
+        locations[7][6].setScene(scenes[SceneType.river.ordinal()]);
+        locations[7][7].setScene(scenes[SceneType.river.ordinal()]);
+        locations[7][8].setScene(scenes[SceneType.river.ordinal()]);
         locations[7][9].setScene(scenes[SceneType.shore.ordinal()]);
     }
+
     
     public static void printMap(Map map, String filepath) throws MapControlException, IOException {
         

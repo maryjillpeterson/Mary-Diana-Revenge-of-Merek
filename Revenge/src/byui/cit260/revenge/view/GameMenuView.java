@@ -13,6 +13,7 @@ import byui.cit260.revenge.model.Inventory;
 import byui.cit260.revenge.model.Location;
 import byui.cit260.revenge.model.Map;
 import byui.cit260.revenge.model.Quest;
+import byui.cit260.revenge.model.RegularScene;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import revenge.Revenge;
  * @author mary and diana
  */
 public class GameMenuView extends View {
+  
 
     
     public GameMenuView(){
@@ -138,38 +140,45 @@ public class GameMenuView extends View {
     private void displayMap() {
         System.out.println("this is for the map function");
     }
-        //Game locations = Revenge.getCurrentGame();
-        
-   
-        //System.out.println("\n\n====================================================");
-        //System.out.println("\t MAP OF AFENARA");
-        //System.out.println("====================================================");
-        //System.out.println("1" + "\t" + "2" + "\t" + "3" + "\t" + "4" + "\t" + "5" + "\t" + "6" 
-        //                    + "\t" + "7" + "\t" + "8" + "\t" + "9" + "\t" + "10");
+    
+    /*private void displayMap(Location[][] location) {
+          
+        Map map = Revenge.getCurrentGame().getMap();
+        boolean visited = Location.isVisited();
                 
-        //for(Game locations : locations) {
-          //  System.out.println(locationColumn.getColumn());
-           // for (int i = 0; i < location.length; i++) { 
-            //    for (int j = 0; j < location[i].length; j++) { 
-            //        location[i][j] = i + j;
-             //   }
-            //}
-                
-            //for (int[] a : location) { for (int i : a) { 
-            //    System.out.print(i + "\t");
-            //    System.out.println("\n"); 
-           // }
+        this.console.println("\n\n====================================================");
+        this.console.println("\t MAP OF AFENARA");
+        this.console.println("====================================================");
+        this.console.println("1" + "\t" + "2" + "\t" + "3" + "\t" + "4" + "\t" + "5" + "\t" + "6" 
+                           + "\t" + "7" + "\t" + "8" + "\t" + "9");
+                   
+                for (int rows = 0; rows < map.getRowCount(); rows++) {
+                    this.console.println("-----" 
+                                   + "\n " + rows);
+                    for (int columns = 0; columns < map.getColumnCount(); columns++){
+                        this.console.println("|");
+                    if (location.isVisited()=true) {
+                         this.console.println(+ map.getLocations()[rows][columns].getScene().getMapSymbol());
+                        this.console.println(" ?? ");
+                }
+                                this.console.println("|");
+                }
+                this.console.println("-----");
+        }
+    } */     
 
-       // }
         
-   // }
+    private void printActorReport() {
+        this.console.println("Need to research print actor report for error.");
+    }   
+    
         
-    private void printActorReport(Actor[] actor, String outputLocation) {
+   /*private void printActorReport(Actor[] actor, String filePath) {
         
         this.console.println("\nEnter the file path where the report is to be stored.");
-        String filePath = this.getInput();
+        //String filePath = this.getInput();
         
-        try (PrintWriter out = new PrintWriter(outputLocation)){
+        try (PrintWriter out = new PrintWriter(filePath)){
             
             //print title and column headings 
             out.println("\n\n        Actor Report       ");
@@ -185,10 +194,7 @@ public class GameMenuView extends View {
             System.out.println("I/O Error: " + ex.getMessage());
         }
     }
+           */
 
-    private void printActorReport() {
-        System.out.println("This is created to resolve error.  Need to determine what "
-                                + "part of printActorReport() is causing error.");
-    }
-
+   
 }

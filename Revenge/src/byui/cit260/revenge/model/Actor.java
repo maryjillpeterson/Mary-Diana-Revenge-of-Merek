@@ -18,17 +18,13 @@ public enum Actor implements Serializable{
     //names and descriptions of characters
     Merek("The rightful and just kind of Afenara."),
     Worthag("The evil Orc who has usurped the thron and taken over the kingdom."),
-    Sirius("The Lord of the County of Cumuland."),
-    Byron("The Lord of County of Keets"),
-    Whitman("The Lord of County Walt"),
-    Tenor("The Lord of the County TrebleCliff"),
+    Sirius("The Lord of the County of Cumuland"),
+    Byron("Villager trying to build a barrel."),
+    Whitman("Village trying to ship a barrel of fish oil."),
+    Tenor("Villager waiting to receive a shipment."),
     Otis("The Lord of the County Upton"),
-    Bayar("Hero of the County of Cumuland"),
-    Maltev("Hero of the County Walt"),
-    Kanto("Hero of the County Keets"),
-    Altin("Warrior of the County TrebleCliff"),
     Extacrucious("Warrior of the County Upton"),
-    Gizellia("An old witch with a riddle.");
+    Gizellia("An old witch");
     
     //class instance variable
     private final String description;

@@ -15,19 +15,9 @@ import java.util.Objects;
 public class QuestScene implements Serializable{
     
     //class instance variables
-    private String description;
     private String questType;
-    private String blocked;
 
     public QuestScene() {
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getQuestType() {
@@ -38,25 +28,16 @@ public class QuestScene implements Serializable{
         this.questType = questType;
     }
 
-    public String getBlocked() {
-        return blocked;
-    }
-
-    public void setBlocked(String blocked) {
-        this.blocked = blocked;
-    }
 
     @Override
     public String toString() {
-        return "QuestScene{" + "description=" + description + ", questType=" + questType + ", blocked=" + blocked + '}';
+        return "QuestScene{" + "questType=" + questType + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.description);
         hash = 41 * hash + Objects.hashCode(this.questType);
-        hash = 41 * hash + Objects.hashCode(this.blocked);
         return hash;
     }
 
@@ -69,17 +50,13 @@ public class QuestScene implements Serializable{
             return false;
         }
         final QuestScene other = (QuestScene) obj;
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
         if (!Objects.equals(this.questType, other.questType)) {
-            return false;
-        }
-        if (!Objects.equals(this.blocked, other.blocked)) {
             return false;
         }
         return true;
     }
+
+
     
     
 }

@@ -19,7 +19,7 @@ public class Map implements Serializable{
     private int rowCount;
     private int columnCount;
     private Location[][] locations;
-    private int column;
+    //private int column;
     protected final PrintWriter console = Revenge.getOutFile();
     
     public Map() {

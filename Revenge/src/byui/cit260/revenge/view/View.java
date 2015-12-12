@@ -20,7 +20,6 @@ import revenge.Revenge;
  * @author chadepeterson
  */
 public abstract class View implements ViewInterface {
-    //Scanner keyboard = new Scanner(System.in);
     private String displayMessage;
     
     protected final BufferedReader keyboard = Revenge.getInFile();
@@ -46,7 +45,6 @@ public abstract class View implements ViewInterface {
     public String getInput() {
         boolean valid = false; //indicates if the entry has to be retrieved
         String selection = null;
-        //Scanner keyboard = new Scanner(System.in); //keyboard input stream
         
         while(!valid) { try {
             //while a valid entry has not been retrieved

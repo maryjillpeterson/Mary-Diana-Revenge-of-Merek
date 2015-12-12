@@ -14,6 +14,7 @@ package byui.cit260.revenge.model;
     public enum Item {  //list for inventory items
        potion,
        bandage,
-       artifact;
+       artifact,
+       shipment;
     }
 

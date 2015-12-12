@@ -82,6 +82,12 @@ public class GameControl {
         artifact.setEquipped(null);
         inventory[Item.artifact.ordinal()] = artifact;
         
+        Inventory shipment = new Inventory();
+        shipment.setItemDescription("Artifact");
+        shipment.setQuantityItem(0);
+        shipment.setEquipped(null);
+        inventory[Item.shipment.ordinal()] = shipment;
+        
         return inventory;
     }
     

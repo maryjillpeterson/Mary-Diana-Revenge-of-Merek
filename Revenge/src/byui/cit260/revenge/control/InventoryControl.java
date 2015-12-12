@@ -6,6 +6,10 @@
 
 package byui.cit260.revenge.control;
 
+import byui.cit260.revenge.model.Actor;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 /**
  *
  * @author chadepeterson
@@ -13,3 +17,5 @@ package byui.cit260.revenge.control;
 public class InventoryControl {
     
 }
+
+    
