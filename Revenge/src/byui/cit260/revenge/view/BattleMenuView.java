@@ -5,24 +5,32 @@
  */
 package byui.cit260.revenge.view;
 
-import java.util.Scanner;
+import byui.cit260.revenge.exceptions.BattleControlException;
+
+
 
 /**
  *
  * @author Diana
  */
 public class BattleMenuView extends View {
-
+    private int opponentLifePoints;
+    private int lifePoints;
+    private int numPotions;
     
-     public BattleMenuView(){
+    
+    public BattleMenuView(){
         super("\n------------------------------------------------------"
-            + "\n         Battle Options                               "
+            + "\n Your opponent is ready for battle."
+            + "\n How would you like to attack first? See the menu below"
             + "\n------------------------------------------------------"
             + "\nS - Strike, P - Pummel, C - Charge,"
             + "\nH - Heal, Q - Quit Battle"
             + "\n"
             + "\nX - Displays explainations of the listed options"
             + "\n------------------------------------------------------");
+        
+        
      }
 
      @Override
@@ -46,7 +54,7 @@ public class BattleMenuView extends View {
                 break;
             case 'H': //execue heal functions
             case 'h':
-                this.battleHeal();
+                this.heal();
                 break;
             case 'X': //display Battle Help options
             case 'x':
@@ -87,21 +95,56 @@ public class BattleMenuView extends View {
         
         this.console.println("-------------------------------------------------------------------------------------");
     }
+     
 
     private void attackStrike() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (opponentLifePoints > 0){
+            opponentLifePoints = opponentLifePoints - 3;
+            this.console.println("You striked your opponent and your opponent lost 3 life points. Great work! ");
+        } 
     }
 
+     
     private void attackPummel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (opponentLifePoints > 0){
+            opponentLifePoints = opponentLifePoints - 8 && lifePoints = lifePoints - 2;
+            this.console.println("You pummeled your opponent and your opponent lost 8 life points. However, you also lost 2 life points. Good hit! ");
+        }
     }
 
-    private void attackCharge() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private boolean attackCharge(int turnNumber, int lastCharge) throws BattleControlException{
+    
+        if(turnNumber == 0){
+            //return false;
+            throw new BattleControlException("This is false.");
+        }
+        
+        boolean validCharge = ((turnNumber - lastCharge)>= 5) || (lastCharge == 0);
+        
+        return validCharge;
+    }
+    
+    }
+    private void heal() {
+        if (numPotions > 0){
+            lifePoints = lifePoints + 3;
+            this.console.println("You added 3 life points to your total.");
+            
+        } else {
+            this.console.println("You do not have any potions left.");
+        }
+    
     }
 
-    private void battleHeal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    
+    
+
+    
+
+    
+
+
     }
 
-}
+

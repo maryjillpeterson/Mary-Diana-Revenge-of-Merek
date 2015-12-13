@@ -8,6 +8,7 @@ package byui.cit260.revenge.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  *
@@ -15,6 +16,11 @@ import java.util.Objects;
  */
 public class Player implements Serializable{
     private String name;
+    private int lifePoints;
+    
+    
+    
+    
 
     public Player() {
     }
@@ -55,6 +61,22 @@ public class Player implements Serializable{
     @Override
     public String toString() {
         return "Player{" + "name=" + name + '}';
+    }
+
+    public int attackStrike() {
+        return lifePoints - 2;
+    }
+    public int attackPummel() {
+        return lifePoints - 8;
+    }
+    
+
+    int attack() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getStatus() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

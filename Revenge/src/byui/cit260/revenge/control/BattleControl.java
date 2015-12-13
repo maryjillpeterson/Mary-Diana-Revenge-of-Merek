@@ -7,15 +7,20 @@
 package byui.cit260.revenge.control;
 
 import byui.cit260.revenge.exceptions.BattleControlException;
+import java.util.Random;
 
 /**
  *
  * @author chadepeterson
  */
 public class BattleControl {
+    
     private int turnNumber;
     private int lastCharge;
+    
 
+    
+    
     public double calculateHealth(double playerStrength, double damage){
     
         if (playerStrength <= 0){
