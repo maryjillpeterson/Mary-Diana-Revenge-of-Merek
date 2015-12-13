@@ -15,11 +15,12 @@ import java.util.Objects;
  */
 public class Quest implements Serializable{
     
-    private String questName;
-    private String questType;
-    private String questCounty;
-    private boolean available;
-    private boolean complete;
+    //class instance variables as array variables
+    String questName;
+    String questType;
+    String questCounty;
+    boolean available;
+    boolean complete;
 
     public Quest() {
     }

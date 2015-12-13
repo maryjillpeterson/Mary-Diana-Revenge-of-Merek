@@ -17,7 +17,7 @@ public class RegularScene implements Serializable{
     //class instance variables
     private String description;
     private String mapSymbol;
-    private Boolean blocked;
+    private boolean blocked;
 
     public RegularScene() {
     }
@@ -38,7 +38,7 @@ public class RegularScene implements Serializable{
         this.mapSymbol = mapSymbol;
     }
     
-    public Boolean getBlocked() {
+    public boolean isBlocked() {
         return blocked;
     }
 

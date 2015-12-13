@@ -20,6 +20,7 @@ public class Location implements Serializable{
     private boolean visited;
     private RegularScene scene;
     private Actor actors;
+    private Quest quest;
 
     public Location() {
     }
@@ -63,6 +64,14 @@ public class Location implements Serializable{
 
     public void setActors(Actor actors) {
         this.actors = actors;
+    }
+
+    public Quest getQuest() {
+        return quest;
+    }
+
+    public void setQuest(Quest quest) {
+        this.quest = quest;
     }
     
     @Override

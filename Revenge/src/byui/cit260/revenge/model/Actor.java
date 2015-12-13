@@ -17,7 +17,7 @@ public enum Actor implements Serializable{
     
     //names and descriptions of characters
     Merek("The rightful and just kind of Afenara."),
-    Worthag("The evil Orc who has usurped the thron and taken over the kingdom."),
+    Worthag("The evil Orc who has usurped the throne and taken over the kingdom."),
     Sirius("The Lord of the County of Cumuland"),
     Byron("Villager trying to build a barrel."),
     Whitman("Village trying to ship a barrel of fish oil."),

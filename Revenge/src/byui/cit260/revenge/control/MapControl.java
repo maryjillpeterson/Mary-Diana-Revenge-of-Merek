@@ -11,7 +11,9 @@ import byui.cit260.revenge.model.Actor;
 import byui.cit260.revenge.model.Game;
 import byui.cit260.revenge.model.Location;
 import byui.cit260.revenge.model.Map;
+import byui.cit260.revenge.model.Player;
 import byui.cit260.revenge.model.Q;
+import byui.cit260.revenge.model.Quest;
 import byui.cit260.revenge.model.QuestScene;
 import byui.cit260.revenge.model.RegularScene;
 import byui.cit260.revenge.model.SceneType;
@@ -254,6 +256,16 @@ public class MapControl {
         locations[7][9].setScene(scenes[SceneType.shore.ordinal()]);
     }
 
+    private static void assignQuestsToLocations(Map map, Quest[] quest) {
+        Location[] [] locations = map.getLocations();
+        
+        //start point
+        locations[1][1].setQuest(quest[Q.artifact.ordinal()]);
+        locations[5][1].setQuest(quest[Q.container.ordinal()]);
+        locations[1][7].setQuest(quest[Q.riddle.ordinal()]);
+        locations[4][4].setQuest(quest[Q.strength.ordinal()]);
+        locations[5][8].setQuest(quest[Q.shipment.ordinal()]);
+    }
     
     public static void printMap(Map map, String filepath) throws MapControlException, IOException {
         
@@ -266,5 +278,25 @@ public class MapControl {
                 throw new MapControlException(e.getMessage());
                 }
         }
+    
+    public static void movePlayerToLocation(Player player, Point coordinates)
+                        throws MapControlException {
+        
+    //moves actor to new location
+        Map map = Revenge.getCurrentGame().getMap();
+        int newRow = coordinates.x-1;
+        int newColumn = coordinates.y-1;
+        
+        //determines if new locations is within the boundaries of the map. If no, an error message is returned.
+        if(newRow < 0 || newRow >= map.getRowCount() ||
+           newColumn < 0 || newColumn >= map.getColumnCount()) {
+           throw new MapControlException("Can not move actor to location"
+                   + coordinates.x + ", " + coordinates.y
+                   + "because that location is outside "
+                   + "the bounds of the map.");
+        }
     }
+
+    }
+
 

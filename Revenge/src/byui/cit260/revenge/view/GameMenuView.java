@@ -97,7 +97,7 @@ public class GameMenuView extends View {
         Quest[] quest = GameControl.getSortedQuestList();
         
         this.console.println("\nList of Quests that are Available");
-        this.console.println("Description" + "\t" + "On Hand");
+        this.console.println("Description" + "\t" + "Type" + "\t" + "Available" + "Complete");
         
         //for each quest
         for(Quest questItem : quest) {
@@ -168,15 +168,26 @@ public class GameMenuView extends View {
     } */     
 
         
-    private void printActorReport() {
+    /*private void printActorReport() {
         this.console.println("Need to research print actor report for error.");
-    }   
+    } */  
     
+    
+   /*private void printActorReport() {
+       Actor[] items = Actor.values();
+       
+       for (Actor item: items) {
+           System.out.println(item + ":    \t" + item.getDescription()
+                                + ":   \t" + item.getCoordinates());
+       }
+    }   */
+   
+   private void printActorReport() {
         
-   /*private void printActorReport(Actor[] actor, String filePath) {
-        
+       Actor [] actor = Actor.values();
+       
         this.console.println("\nEnter the file path where the report is to be stored.");
-        //String filePath = this.getInput();
+        String filePath = this.getInput();
         
         try (PrintWriter out = new PrintWriter(filePath)){
             
@@ -194,7 +205,7 @@ public class GameMenuView extends View {
             System.out.println("I/O Error: " + ex.getMessage());
         }
     }
-           */
+           
 
    
 }
