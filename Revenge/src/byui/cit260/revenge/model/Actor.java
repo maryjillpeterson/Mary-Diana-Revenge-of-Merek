@@ -16,19 +16,14 @@ import java.util.Objects;
 public enum Actor implements Serializable{
     
     //names and descriptions of characters
-    Merek("The rightful and just kind of Afenara."),
-    Worthag("The evil Orc who has usurped the throne and taken over the kingdom."),
-    Sirius("The Lord of the County of Cumuland"),
-    Byron("Villager trying to build a barrel."),
-    Whitman("Village trying to ship a barrel of fish oil."),
-    Tenor("Villager waiting to receive a shipment."),
-    Otis("The Lord of the County Upton"),
+    Bandit("The defender of artifacts."),
     Extacrucious("Warrior of the County Upton"),
     Gizellia("An old witch");
     
     //class instance variable
     private final String description;
     private final Point coordinates;
+    private final int lifePoints;
 
     Actor(String description) {
         this.description = description;
@@ -43,4 +38,8 @@ public enum Actor implements Serializable{
         return coordinates;
     }
 
+    public int getLifePoints() {
+        return lifePoints;
+    }
+    
 }

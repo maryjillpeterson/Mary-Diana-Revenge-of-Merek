@@ -6,6 +6,7 @@
 package byui.cit260.revenge.view;
 
 import byui.cit260.revenge.exceptions.BattleControlException;
+import byui.cit260.revenge.model.Actor;
 
 
 
@@ -17,6 +18,7 @@ public class BattleMenuView extends View {
     private int opponentLifePoints;
     private int lifePoints;
     private int numPotions;
+    private int actorLifePoints;
     
     
     public BattleMenuView(){
@@ -98,9 +100,10 @@ public class BattleMenuView extends View {
      
 
     private void attackStrike() {
-        if (opponentLifePoints > 0){
-            opponentLifePoints = opponentLifePoints - 3;
-            this.console.println("You striked your opponent and your opponent lost 3 life points. Great work! ");
+        Actor[] actors = Actor.values();
+        if (actors.getLifePoints() > 0){
+            actorLifePoints = actorLifePoints - 3;
+            this.console.println("You struck your opponent and your opponent lost 3 life points. Great work! ");
         } 
     }
 
