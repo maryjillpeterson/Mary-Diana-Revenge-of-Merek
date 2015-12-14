@@ -16,14 +16,13 @@ import java.util.Objects;
 public enum Actor implements Serializable{
     
     //names and descriptions of characters
-    Bandit("The defender of artifacts."),
-    Extacrucious("Warrior of the County Upton"),
+    Bandit("The thief of artifacts."),
+    Extacrucious("The Warrior who will battle the player."),
     Gizellia("An old witch");
     
     //class instance variable
     private final String description;
     private final Point coordinates;
-    private final int lifePoints;
 
     Actor(String description) {
         this.description = description;
@@ -38,8 +37,8 @@ public enum Actor implements Serializable{
         return coordinates;
     }
 
-    public int getLifePoints() {
-        return lifePoints;
-    }
+    
+    
+    
     
 }

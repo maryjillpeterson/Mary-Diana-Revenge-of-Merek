@@ -7,6 +7,8 @@ package byui.cit260.revenge.view;
 
 import byui.cit260.revenge.exceptions.BattleControlException;
 import byui.cit260.revenge.model.Actor;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -19,6 +21,11 @@ public class BattleMenuView extends View {
     private int lifePoints;
     private int numPotions;
     private int actorLifePoints;
+    private int playerBattleLifePoints;
+    private int playerBattlelifePoints;
+    private int turnNumber;
+    private int lastCharge;
+    private boolean validCharge;
     
     
     public BattleMenuView(){
@@ -52,11 +59,15 @@ public class BattleMenuView extends View {
                 break;
             case 'C': //execute a charge attack
             case 'c':
-                this.attackCharge();
+        try {
+            this.attackCharge();
+        } catch (BattleControlException ex) {
+            Logger.getLogger(BattleMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
                 break;
             case 'H': //execue heal functions
             case 'h':
-                this.heal();
+                this.healPlayer();
                 break;
             case 'X': //display Battle Help options
             case 'x':
@@ -100,8 +111,7 @@ public class BattleMenuView extends View {
      
 
     private void attackStrike() {
-        Actor[] actors = Actor.values();
-        if (actors.getLifePoints() > 0){
+        if (actorLifePoints > 0){
             actorLifePoints = actorLifePoints - 3;
             this.console.println("You struck your opponent and your opponent lost 3 life points. Great work! ");
         } 
@@ -109,28 +119,34 @@ public class BattleMenuView extends View {
 
      
     private void attackPummel() {
-        if (opponentLifePoints > 0){
-            opponentLifePoints = opponentLifePoints - 8 && lifePoints = lifePoints - 2;
+        if (actorLifePoints > 0){
+            actorLifePoints = actorLifePoints - 8;
             this.console.println("You pummeled your opponent and your opponent lost 8 life points. However, you also lost 2 life points. Good hit! ");
         }
     }
+    
+    private void attackPummelLoss() {
+        if (actorLifePoints > 0){
+            playerBattleLifePoints = playerBattleLifePoints - 2;
+            this.console.println("Because you pummeled your opponent you also lost 2 life points. Sorry!");
+        }
+    }
 
-    private boolean attackCharge(int turnNumber, int lastCharge) throws BattleControlException{
+    private void attackCharge() throws BattleControlException{
     
         if(turnNumber == 0){
             //return false;
             throw new BattleControlException("This is false.");
         }
         
-        boolean validCharge = ((turnNumber - lastCharge)>= 5) || (lastCharge == 0);
-        
-        return validCharge;
+        validCharge = ((turnNumber - lastCharge)>= 5) || (lastCharge == 0);
+        this.console.println("You have Charged your opponent, this means that he will be stunned for 1 turn.");
     }
     
-    }
-    private void heal() {
+    
+    private void healPlayer() {
         if (numPotions > 0){
-            lifePoints = lifePoints + 3;
+            playerBattlelifePoints = playerBattlelifePoints + 3;
             this.console.println("You added 3 life points to your total.");
             
         } else {

@@ -17,6 +17,7 @@ import java.util.Random;
 public class Player implements Serializable{
     private String name;
     private int lifePoints;
+    private int strength;
     
     
     
@@ -34,6 +35,9 @@ public class Player implements Serializable{
     public void setName(String name) {
         this.name = name;
     
+    }
+    public void playerBattleLifePoints(){
+        this.strength = 40;
     }
 
     @Override
